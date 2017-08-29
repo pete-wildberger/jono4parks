@@ -6,7 +6,8 @@
     <!-- Vendors -->
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="vendors/angular-route.min.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="vendors/w3.css">
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="styles/styles.min.css">
     <!-- App -->
@@ -27,7 +28,12 @@
       <div class="w3-container">
         <ng-view><ng-view>
       </div>
-      <footer></footer>
+      <footer>
+        <p>Contact us</p>
+        <a href="mailto:pete.wildberger@gmail.com">
+            <i class="fa fa-envelope-o hvr-icon-rotate"></i>
+          </a>
+      </footer>
     </main>
   </body>
 
