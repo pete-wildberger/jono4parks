@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jono for Parks</title>
+    <!-- Vendors -->
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/styles.min.css">
+    <!-- App -->
+    <script src="scripts/app.js" charset="utf-8"></script>
+    <script src="scripts/ngconfig.js" charset="utf-8"></script>
+    <!-- Controller -->
+    <script src="scripts/controllers/IndexController.js" charset="utf-8"></script>
+    <script src="scripts/controllers/WelcomeController.js" charset="utf-8"></script>
+    <!-- Services -->
+    <script src="services/http.Service.js" charset="utf-8"></script>
+  </head>
+
+  <body ng-app="myApp">
+    <main ng-controller="IndexController as ic">
+      <header>
+
+      </header>
+      <div class="container">
+        <ng-view><ng-view>
+      </div>
+      <footer></footer>
+    </main>
+  </body>
+
+</html>
