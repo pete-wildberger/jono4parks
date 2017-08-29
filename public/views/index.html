@@ -1,40 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Jono for Parks</title>
-    <!-- Vendors -->
-    <script src="vendors/angular.min.js" charset="utf-8"></script>
-    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="vendors/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- CSS -->
-    <link rel="stylesheet" href="styles/styles.min.css">
-    <!-- App -->
-    <script src="scripts/app.js" charset="utf-8"></script>
-    <script src="scripts/ngconfig.js" charset="utf-8"></script>
-    <!-- Controller -->
-    <script src="scripts/controllers/IndexController.js" charset="utf-8"></script>
-    <script src="scripts/controllers/WelcomeController.js" charset="utf-8"></script>
-    <!-- Services -->
-    <script src="services/http.Service.js" charset="utf-8"></script>
-  </head>
 
-  <body ng-app="myApp">
-    <main ng-controller="IndexController as ic">
-      <header>
+<head>
+  <meta charset="utf-8">
+  <title>Jono for Parks</title>
+  <!-- Vendors -->
+  <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="vendors/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles/styles.min.css">
+  <!-- App -->
+  <script src="scripts/app.js" charset="utf-8"></script>
+  <script src="scripts/ngconfig.js" charset="utf-8"></script>
+  <!-- Controller -->
+  <script src="scripts/controllers/IndexController.js" charset="utf-8"></script>
+  <script src="scripts/controllers/WelcomeController.js" charset="utf-8"></script>
+  <!-- Services -->
+  <script src="services/http.Service.js" charset="utf-8"></script>
+</head>
 
-      </header>
-      <div class="w3-container">
-        <ng-view><ng-view>
-      </div>
-      <footer>
-        <p>Contact us</p>
+<body ng-app="myApp">
+  <main ng-controller="IndexController as ic">
+    <header>
+
+    </header>
+    <div class="w3-container">
+      <ng-view>
+        <ng-view>
+    </div>
+    <footer>
+      <div class="line"></div>
+      <p class="text-center">Contact us</p>
+      <div class="text-center">
         <a href="mailto:pete.wildberger@gmail.com">
             <i class="fa fa-envelope-o hvr-icon-rotate"></i>
           </a>
-      </footer>
-    </main>
-  </body>
+        <a href="https://www.facebook.com/jono4parkboard/" target="_blank">
+            <i class="fa fa-facebook hvr-icon-rotate"></i>
+          </a>
+        <a href="https://twitter.com/jono4parkboard" target="_blank">
+            <i class="fa fa-twitter hvr-icon-rotate"></i>
+          </a>
+      </div>
+    </footer>
+  </main>
+</body>
 
 </html>
