@@ -1,4 +1,14 @@
 <div class="row">
+  <div class="col-md-12">
+    <form class="endorse-jono">
+      <input type="text" placeholder="First name" ng-model="ec.firstName" required>
+      <input type="text" placeholder="Last name" ng-model="ec.lastName" required>
+      <input type="text" placeholder="Occupation" ng-model="ec.occupation" required>
+      <button type="submit" ng-click="vm.addEndorsement()">Endorse</button>
+    </form>
+  </div>
+</div>
+<div class="row">
   <div class="col-md-4 col-sm-12">
     <img id="aj" class="img-fit" ng-src="assets/endorse-6_cm_aj.jpeg" alt="">
   </div>
