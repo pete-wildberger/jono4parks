@@ -7,5 +7,13 @@ app.config(function($routeProvider) {
         templateUrl: "/views/partials/endorse.html",
         controller: "EndorseController as ec",
         controllerAs:"ec"
+    }).when('/dash', {
+        templateUrl: "/views/partials/dashboard.html",
+        controller: "DashController as dc",
+        controllerAs:"dc"
+    }).when('/admin', {
+        templateUrl: "/views/partials/admin.html",
+        controller: "IndexController as ic",
+        controllerAs:"ic"
     });
   });

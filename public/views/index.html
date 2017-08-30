@@ -18,10 +18,13 @@
   <script src="scripts/ngconfig.js" charset="utf-8"></script>
   <!-- Controllers -->
   <script src="scripts/controllers/IndexController.js" charset="utf-8"></script>
+  <script src="scripts/controllers/DashBoardController.js" charset="utf-8"></script>
   <script src="scripts/controllers/WelcomeController.js" charset="utf-8"></script>
   <script src="scripts/controllers/EndorseController.js" charset="utf-8"></script>
   <!-- Services -->
   <script src="services/http.Service.js" charset="utf-8"></script>
+  <script src="services/authFactory.js" charset="utf-8"></script>
+
 </head>
 
 <body ng-app="myApp">
@@ -35,8 +38,10 @@
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times fa-lg"></i></a>
               <a href="#!/" class="navItem"><p>HOME</p></a>
               <a href="#!/about" class="navItem"><p>ABOUT</p></a>
+              <a href="#!/issues" class="navItem"><p>ISSUES</p></a>
               <a href="#!/endorsements" class="navItem"><p>ENDORSEMENTS</p></a>
-              <a href="#!/donate" class="navItem"><p>DONATE</p></a>
+              <a href="#!/events" class="navItem"><p>EVENTS</p></a>
+              <a href="#!/donate" class="navItem donate"><p>DONATE</p></a>
             </div>
           </div>
           <div class="col-md-6 col-lg-6">
@@ -44,13 +49,15 @@
           </div>
         </div>
         <div class="noPhone row title">
-          <div class="col-md-4 col-lg-3">
+          <div class="col-md-3 col-lg-2">
             <a href="#!/"><img class="logo" ng-src="/assets/logo.png"></a>
           </div>
-          <div class="col-md-8 col-lg-9 navTime">
+          <div class="col-md-9 col-lg-10 navTime">
               <a href="#!/about"><h3 class="route">ABOUT</h3></a>
+              <a href="#!/issues"><h3 class="route">ISSUES</h3></a>
               <a href="#!/endorsements"><h3 class="route">ENDORSEMENTS</h3></a>
-              <a href="#!/donate"><h3 class="route">DONATE</h3></a>
+              <a href="#!/events"><h3 class="route">EVENTS</h3></a>
+              <a href="#!/donate"><h3 class="route donate">SUPPORT</h3></a>
           </div>
         </div>
       </div>
@@ -66,6 +73,10 @@
         <a href="https://twitter.com/jono4parkboard" target="_blank"><i class="fa fa-twitter fa-3x social"></i></a>
         <a href="https://www.facebook.com/jono4parkboard/" target="_blank"><i class="fa fa-facebook fa-3x social"></i></a>
       </div>
+      <p class="text-center">
+      Jono Cowgill<br>
+      612-598-5157<br>
+      jono4parks@gmail.com</p>
     </footer>
   </main>
 </body>

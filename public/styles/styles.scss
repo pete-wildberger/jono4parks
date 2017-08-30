@@ -103,6 +103,17 @@ p, li, a {
   width: 90%;
   margin: 1% 5%;
 }
+.e-banner{
+  width: 100%;
+  margin: auto;
+}
+.donate{
+  border: solid red 2px;
+}
+.donate:hover{
+  background-color: red;
+  color: white;
+}
 .social{
   margin: 2%;
 }
