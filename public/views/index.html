@@ -7,8 +7,10 @@
   <!-- Vendors -->
   <script src="vendors/angular.min.js" charset="utf-8"></script>
   <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+
   <link rel="stylesheet" href="vendors/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quattrocento+Sans">
   <!-- CSS -->
   <link rel="stylesheet" href="styles/styles.min.css">
   <!-- App -->
@@ -24,25 +26,45 @@
 <body ng-app="myApp">
   <main ng-controller="IndexController as ic">
     <header>
-
+      <div class="container-fluid">
+        <div class="phone row title">
+          <div class="col-md-6 col-lg-6 side">
+            <i id="burger" class="fa fa-bars fa-4x fa-border" onclick="openNav()"></i>
+            <div id="mySidenav" class="sidenav">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <a href="#!/" class="navItem">ABOUT</a>
+              <a href="#!/work" class="navItem">WORK</a>
+              <a href="#!/repos" class="navItem">REPOS</a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <h3 class="rightName">Peter Wildberger</h3>
+          </div>
+        </div>
+        <div class="noPhone row title">
+          <div class="col-md-4 col-lg-3">
+            <img class="logo" ng-src="/assets/logo.png">
+          </div>
+          <div class="col-md-8 col-lg-9">
+            <div class="navTime">
+              <a href="#!/"><h3 class="route">ABOUT</h3></a>
+              <a href="#!/work"><h3 class="route">WORK</h3></a>
+              <a href="#!/repos"><h3 class="route">REPOS</h3></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
-    <div class="w3-container">
-      <ng-view>
-        <ng-view>
+    <div class="container-fluid view_margin">
+      <ng-view></ng-view>
     </div>
     <footer>
       <div class="line"></div>
       <p class="text-center">Contact us</p>
       <div class="text-center">
-        <a href="mailto:pete.wildberger@gmail.com">
-            <i class="fa fa-envelope-o hvr-icon-rotate"></i>
-          </a>
-        <a href="https://www.facebook.com/jono4parkboard/" target="_blank">
-            <i class="fa fa-facebook hvr-icon-rotate"></i>
-          </a>
-        <a href="https://twitter.com/jono4parkboard" target="_blank">
-            <i class="fa fa-twitter hvr-icon-rotate"></i>
-          </a>
+        <a href="mailto:pete.wildberger@gmail.com"><i class="fa fa-envelope-o fa-3x"></i></a>
+        <a href="https://twitter.com/jono4parkboard" target="_blank"><i class="fa fa-twitter fa-3x"></i></a>
+        <a href="https://www.facebook.com/jono4parkboard/" target="_blank"><i class="fa fa-facebook fa-3x"></i></a>
       </div>
     </footer>
   </main>
