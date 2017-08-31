@@ -15,7 +15,9 @@ p, li {
   margin: 1.5% 0%;
 }
 .endorse-jono{
-  margin: auto;
+  vertical-align: middle;
+  display: block;
+   margin: auto;
 }
 .block{
   display: block;
@@ -36,7 +38,7 @@ p, li {
   vertical-align: middle;
 }
 .view_margin{
-  margin-top: $nav_height;
+  margin-top: 100px;
 }
 .navTime{
   justify-content: right;
@@ -134,6 +136,31 @@ p.quote{
     filter: opacity(70%);
 
 }
+.en-in{
+  margin: auto;
+
+  // border-color: #8A00C5;
+}
+.en-btn{
+    background-color: #8A00C5;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.en-btn:hover{
+  background-color: #A5E8B8;
+}
+div.card {
+    margin: 2% auto;
+    width: 30%;
+    height: 12%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
 //phone styles
 @media screen and (max-width: 994px){
 
@@ -153,6 +180,7 @@ p.quote{
   .noPhone{
     display: none;
   }
+
   .side{
     display: inline-block;
     float: left;
