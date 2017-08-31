@@ -1,4 +1,72 @@
-<div class="">
-  <h1>I'm in</h1>
-  <a ng-if="dc.displayLogout"href="#!" ng-click="dc.logout()"><span class="menuItem">Logout</span></a>
+<div class="row">
+  <button type="button" ng-click="dc.showTable(0)">Endorsements</button>
+  <button type="button" ng-click="dc.showTable(1)">Events</button>
+  <button type="button" ng-click="dc.showTable(2)">Messages</button>
+  <a ng-if="dc.displayLogout" href="#!" ng-click="dc.logout()"><span class="menuItem">Logout</span></a>
+</div>
+<div class="row" ng-if="dc.endorse">
+  <div class="col-md-12">
+    <table id="endorse">
+      <tr>
+        <th ng-click="orderByMe('first')">First Name</th>
+        <th ng-click="orderByMe('last')">Last Name</th>
+        <th>Employee ID</th>
+        <th>Job Title</th>
+        <th>Pay</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat='employees in dc.endorsers'>
+        <td>{{ employees.first | lowercase}}</td>
+        <td>{{ employees.last | uppercase}}</td>
+        <td>{{ employees.id }}</td>
+        <td>{{ employees.title | json}}</td>
+        <td>{{ employees.pay | currency}}</td>
+        <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row" ng-if="dc.event">
+  <div class="col-md-12">
+    <table id="events">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Employee ID</th>
+        <th>Job Title</th>
+        <th>Pay</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat='employees in dc.events'>
+        <td>{{ employees.first | lowercase}}</td>
+        <td>{{ employees.last | uppercase}}</td>
+        <td>{{ employees.id }}</td>
+        <td>{{ employees.title | json}}</td>
+        <td>{{ employees.pay | currency}}</td>
+        <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row" ng-if="dc.message">
+  <div class="col-md-12">
+    <table id="message">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Employee ID</th>
+        <th>Job Title</th>
+        <th>Pay</th>
+        <th></th>
+      </tr>
+      <tr ng-repeat='employees in dc.messages'>
+        <td>{{ employees.first | lowercase}}</td>
+        <td>{{ employees.last | uppercase}}</td>
+        <td>{{ employees.id }}</td>
+        <td>{{ employees.title | json}}</td>
+        <td>{{ employees.pay | currency}}</td>
+        <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
+      </tr>
+    </table>
+  </div>
 </div>

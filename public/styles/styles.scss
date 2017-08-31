@@ -7,6 +7,30 @@ p, li {
   font-size: 1.5em;
   padding: 2%;
 }
+table {
+    color: #333;
+    font-family: Helvetica;
+    width: 800px;
+    border-collapse:
+    collapse; border-spacing: 0;
+    margin: auto;
+}
+
+td, th {
+    border: 1px solid transparent;
+    height: 30px;
+    transition: all 0.3s;
+}
+
+th {
+    background: #DFDFDF;
+    font-weight: bold;
+}
+
+td {
+    background: #FAFAFA;
+    text-align: center;
+}
 .line{
   border-top: solid black 1px;
   width: 95%;
@@ -212,6 +236,9 @@ div.card {
   font-size: 3em !important;
   }
 
+  h1 {
+    font-size: 4em !important
+  }
   h2 {
     font-weight: bold;
   }
