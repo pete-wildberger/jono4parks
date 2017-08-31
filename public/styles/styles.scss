@@ -3,7 +3,7 @@ $nav_height: 95px;
 body {
   font-family: 'Quattrocento Sans', sans-serif;
 }
-p, li, a {
+p, li {
   font-size: 1.5em;
   padding: 2%;
 }
@@ -143,9 +143,12 @@ p.quote{
   .headBar{
     margin-top: 5vw;
   }
-  .phone{
+  .phoneBar{
     display: block;
     height: $nav_height;
+  }
+  .phone{
+    display: block;
   }
   .noPhone{
     display: none;

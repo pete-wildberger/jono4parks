@@ -19,5 +19,9 @@ app.config(function($routeProvider) {
         templateUrl: "/views/partials/issues.html",
         controller: "IndexController as ic",
         controllerAs:"ic"
+    }).when('/about', {
+        templateUrl: "/views/partials/about.html",
+        controller: "IndexController as ic",
+        controllerAs:"ic"
     });
   });
