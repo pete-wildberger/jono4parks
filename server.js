@@ -1,3 +1,6 @@
+require('dotenv').config({
+  path: './.env'
+});
 // requires etc
 const express = require('express'),
 app = express(),
@@ -6,7 +9,6 @@ bodyParser = require('body-parser'),
 port = process.env.PORT || 4000,
 session = require('express-session'),
 passport = require('./auth/passport'),
-configs = require('./config/auth'),
 index = require('./routes/index'),
 auth = require('./routes/auth'),
 isLoggedIn = require('./utils/auth'),
@@ -21,7 +23,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(session({
-  secret: configs.sessionVars.secret,
+  secret: process.env.SECRET,
   key: 'user',
   resave: 'true',
   saveUninitialized: false,
@@ -38,8 +40,3 @@ app.use('/', index);
 app.listen(port, function(){
   console.log('server up on 4000');
 });
-
-// app.get('/', function(req, res){
-//   console.log('base url hit');
-// res.sendFile(path.resolve('public/views/index.html'));
-// });

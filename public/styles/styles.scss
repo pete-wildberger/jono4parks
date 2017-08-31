@@ -111,10 +111,18 @@ p, li {
   width: 90%;
   margin: 1% 5%;
 }
-.e-banner{
-  width: 100%;
-  margin: auto;
+.wrapper{
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    margin: 2%;
 }
+.wrapper:hover {
+    color: red;
+    transition: 0.9s;
+    transform: rotateY(180deg);
+}
+
 .donate{
   border: solid red 2px;
 }
@@ -137,7 +145,7 @@ p.quote{
 
 }
 .en-in{
-  margin: auto;
+  margin: 2% auto;
 
   // border-color: #8A00C5;
 }
@@ -150,14 +158,15 @@ p.quote{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin: 2% auto;
 }
 .en-btn:hover{
   background-color: #A5E8B8;
 }
 div.card {
-    margin: 2% auto;
-    width: 30%;
-    height: 12%;
+  width: 90%;
+  margin: 3% 5%;
+  background-color: #A5E8B8;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
