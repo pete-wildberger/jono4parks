@@ -39,12 +39,12 @@
           <i class="fa fa-bars fa-5x ham-allign" onclick="openNav()"></i>
             <div id="mySidenav" class="sidenav">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times fa-lg"></i></a>
-              <a href="#!/" class="navItem"><p>HOME</p></a>
-              <a href="#!/about" class="navItem"><p>ABOUT</p></a>
-              <a href="#!/issues" class="navItem"><p>ISSUES</p></a>
-              <a href="#!/endorsements" class="navItem"><p>ENDORSEMENTS</p></a>
-              <a href="#!/events" class="navItem"><p>EVENTS</p></a>
-              <a href="#!/donate" class="navItem donate"><p>SUPPORT</p></a>
+              <a href="#!/" class="navItem" onclick="closeNav()"><p>HOME</p></a>
+              <a href="#!/about" class="navItem" onclick="closeNav()"><p>ABOUT</p></a>
+              <a href="#!/issues" class="navItem" onclick="closeNav()"><p>ISSUES</p></a>
+              <a href="#!/endorsements" class="navItem" onclick="closeNav()"><p>ENDORSEMENTS</p></a>
+              <a href="#!/events" class="navItem" onclick="closeNav()"><p>EVENTS</p></a>
+              <a href="#!/donate" class="navItem donate" onclick="closeNav()"><p>SUPPORT</p></a>
             </div>
           </div>
           <div class="col-md-6 col-lg-6">
@@ -56,11 +56,11 @@
             <a href="#!/"><img class="logo" ng-src="/assets/logo.png"></a>
           </div>
           <div class="col-md-9 col-lg-10 navTime">
-              <a href="#!/about"><h3 class="route">ABOUT</h3></a>
-              <a href="#!/issues"><h3 class="route">ISSUES</h3></a>
-              <a href="#!/endorsements"><h3 class="route">ENDORSEMENTS</h3></a>
-              <a href="#!/events"><h3 class="route">EVENTS</h3></a>
-              <a href="#!/donate"><h3 class="route donate">SUPPORT</h3></a>
+              <a href="#!/about" onclick="closeNav()"><h3 class="route">ABOUT</h3></a>
+              <a href="#!/issues" onclick="closeNav()"><h3 class="route">ISSUES</h3></a>
+              <a href="#!/endorsements" onclick="closeNav()"><h3 class="route">ENDORSEMENTS</h3></a>
+              <a href="#!/events" onclick="closeNav()"><h3 class="route">EVENTS</h3></a>
+              <a href="#!/donate" onclick="closeNav()"><h3 class="route donate">SUPPORT</h3></a>
           </div>
         </div>
       </div>
