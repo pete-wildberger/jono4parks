@@ -106,6 +106,7 @@ p, li {
 }
 .rightName{
   float:right;
+  font-weight: bold;
 }
 .img-fit{
   width: 90%;
@@ -180,8 +181,10 @@ div.card {
     margin-top: 5vw;
   }
   .phoneBar{
-    display: block;
     height: $nav_height;
+    display: block;
+    background-color: #8A00C5;
+    color: #A5E8B8;
   }
   .phone{
     display: block;
@@ -201,6 +204,9 @@ div.card {
     font-size: 1em !important;
     padding: 0;
     margin: 0;
+  }
+  .ham-allign{
+    margin: 40% 30%;
   }
   p, h2, li {
   font-size: 3em !important;
