@@ -1,12 +1,4 @@
-/**
- * A service layer that makes all of our User database queries.
- *
- * @module services/user
- *
- * @function findUserById finds a User by their unique Mongo id
- * @function findUserByGoogleId finds a User by their Google id
- * @function create a User that will be authenticated by Google
- */
+
 var User = require('../models/user');
 
 var UserService = {
