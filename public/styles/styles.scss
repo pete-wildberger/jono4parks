@@ -4,7 +4,7 @@ body {
   font-family: 'Quattrocento Sans', sans-serif;
 }
 p, li, a {
-  font-size: 1em;
+  font-size: 1.5em;
   padding: 2%;
 }
 .line{
@@ -13,6 +13,12 @@ p, li, a {
 }
 .logo{
   margin: 1.5% 0%;
+}
+.endorse-jono{
+  margin: auto;
+}
+.block{
+  display: block;
 }
 .title{
   position: fixed;

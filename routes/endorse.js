@@ -6,18 +6,16 @@ Endorse = require('../models/endorsements');
 router.get('/', function (req, res) {
   console.log('pop classes hit');
 
-    let foundEndorsements = [];
-
     Endorse.find(function(err, people) {
       if (err) {
-        console.log('no classes found');
+        console.log('no endorsements found');
         res.sendStatus(400);
       } else {
-        console.log('found classes');
-        foundClasses.push(people);
-      } //end else
-      console.log(foundEndorsements);
-      res.send(foundEndorsements);
+        console.log('found endorsements');
+
+      console.log(people);
+      res.send(people);
+    }
     }); //end endorsements find
   }); //end getendorsements
 

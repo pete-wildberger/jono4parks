@@ -22,17 +22,20 @@ var UserService = require('../services/user');
 
 // serialize the user onto the session
 passport.serializeUser(function (user, done) {
-  if (err) return handleError(err);
+  // if (err) return handleError(err);
+  console.log('user', user);
+  console.log('done', done);
     done(null, user.id);
 });
 
 // deserialize the user from the session and provide user object
 passport.deserializeUser(function (id, done) {
+  console.log('id', id);
+  console.log('done', done);
   UserService.findUserById(id, function (err, user) {
     if (err) {
       return done(err);
     }
-
     return done(null, user);
   });
 });
@@ -54,7 +57,10 @@ passport.use('google', new GoogleStrategy({
       if (user) { // user does exist!
         return done(null, user);
       }
-
+      UserService.findUserByEmail(profile.emails[0].value, function(err, user) {
+        if (user === null || err) {
+          return done(err);
+        }
       // user does not exist in our database, let's create one!
       // UserService.createGoogleUser(profile.id, token, profile.displayName,
       //   profile.emails[0].value, /* we take first email address */
@@ -64,7 +70,7 @@ passport.use('google', new GoogleStrategy({
       //     }
       //
       //     return done(null, user);
-      //   });
+        });
     });
 
 }));

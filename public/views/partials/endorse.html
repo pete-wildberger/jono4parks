@@ -1,13 +1,11 @@
-<div class="row">
-  <div class="col-md-12">
+
     <form class="endorse-jono">
-      <input type="text" placeholder="First name" ng-model="ec.firstName" required>
-      <input type="text" placeholder="Last name" ng-model="ec.lastName" required>
-      <input type="text" placeholder="Occupation" ng-model="ec.occupation" required>
-      <button type="submit" ng-click="vm.addEndorsement()">Endorse</button>
+      <input class="block" type="text" placeholder="First name" ng-model="ec.firstName" required>
+      <input class="block" type="text" placeholder="Last name" ng-model="ec.lastName" required>
+      <input class="block" type="text" placeholder="Occupation" ng-model="ec.occupation" required>
+      <button class="block" type="submit" ng-click="ec.addEndorsement()">Endorse</button>
     </form>
-  </div>
-</div>
+
 <div class="row">
   <div class="col-md-4 col-sm-12">
     <img id="aj" class="img-fit" ng-src="assets/endorse-6_cm_aj.jpeg" alt="">
@@ -17,6 +15,18 @@
   </div>
   <div class="col-md-4 col-sm-12">
     <img class="img-fit" ng-src="assets/endorse-4_sen_dibble.jpeg" alt="">
+  </div>
+</div>
+<h2 class="text-center">Thank you for your support!</h2>
+<div class="row">
+  <div class="col-md-4 col-sm-12" ng-repeat="x in ec.colOneArr">
+    <p class="text-center">{{x.firstName}} {{x.lastName}}, {{x.occupation}}</p>
+  </div>
+  <div class="col-md-4 col-sm-12" ng-repeat="x in ec.colTwoArr">
+    <p class="text-center">{{x.firstName}} {{x.lastName}}, {{x.occupation}}</p>
+  </div>
+  <div class="col-md-4 col-sm-12" ng-repeat="x in ec.colThreeArr">
+    <p class="text-center">{{x.firstName}} {{x.lastName}}, {{x.occupation}}</p>
   </div>
 </div>
 <div class="row">
