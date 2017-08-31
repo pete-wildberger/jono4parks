@@ -6,6 +6,7 @@ app.controller('DashController', function($location, httpService, AuthFactory) {
   console.log('log', vm.endorse);
   vm.event = false;
   vm.message = false;
+  vm.endorsements = [];
 
   hs.getItem('auth').then(function(res) {
     console.log(res.data);
@@ -16,6 +17,15 @@ app.controller('DashController', function($location, httpService, AuthFactory) {
       $location.path('/');
     }
   }); //end httpService get item
+  vm.populateTable = function(path){
+  hs.getItem(path).then(function(res){
+    if(path == '/endorse'){
+      console.log('res', res.data);
+    vm.endorsements = res.data;
+  }
+  });
+};
+
   AuthFactory.isLoggedIn()
     .then(function(response) {
         if (response.data.status) {
@@ -48,20 +58,22 @@ app.controller('DashController', function($location, httpService, AuthFactory) {
   };
 
   vm.showTable = function(id) {
-    if(id == 0){
-    vm.endorse = !vm.endorse;
-    vm.event = false;
-    vm.message = false;
-  } else if (id == 1){
-    vm.endorse = false;
-    vm.event = !vm.event;
-    vm.message = false;
-  } else {
-    vm.endorse = false;
-    vm.event = false;
-    vm.message = !vm.message;
-  }
+    if (id == 0) {
+      vm.populateTable('/endorse');
+      vm.endorse = !vm.endorse;
+      vm.event = false;
+      vm.message = false;
+    } else if (id == 1) {
+      vm.endorse = false;
+      vm.event = !vm.event;
+      vm.message = false;
+    } else {
+      vm.endorse = false;
+      vm.event = false;
+      vm.message = !vm.message;
+    }
   };
+
   vm.removeRow = function(index) {
     console.log('remove');
     // vm.employees.splice(index, 1);
