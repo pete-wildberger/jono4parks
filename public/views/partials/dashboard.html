@@ -20,8 +20,8 @@
         <td>{{ x.lastName }}</td>
         <td>{{ x.occupation }}</td>
         <td></td>
-        <td></td>
-        <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
+        <td><button ng-click='dc.editRow(x._id)'>Edit</button></td>
+        <td><button ng-click='dc.removeRow("/private/endorse", x._id)'>DELETE</button></td>
       </tr>
     </table>
   </div>

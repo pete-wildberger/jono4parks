@@ -74,9 +74,10 @@ app.controller('DashController', function($location, httpService, AuthFactory) {
     }
   };
 
-  vm.removeRow = function(index) {
+  vm.removeRow = function(path, id) {
     console.log('remove');
-    // vm.employees.splice(index, 1);
-    // vm.expend = ArraySum(vm.employees);
+    hs.deleteItem(path, id).then(function(res) {
+      vm.populateTable('/endorse');
+  });
   };
 });
