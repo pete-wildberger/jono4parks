@@ -82,15 +82,19 @@ app.controller('DashController', function($location, httpService, AuthFactory) {
     }
   };
   vm.openEndorseModal = function(id){
+    console.log('id', id);
+    document.getElementById('endorseModal').style.display = 'block';
     let idx = vm.endorsements.indexOf(id);
+    console.log('idx', idx);
     vm.changes = vm.endorsements[idx];
+    console.log('chi chi chi', vm.changes);
   };
 
   vm.editEndorse = function(id){
-
     hs.putItem('/private/endorse', id, vm.changes).then(function(res){
       vm.changes = {};
       vm.populateTable('/endorse');
+      document.getElementById('endorseModal').style.display = 'none';
     });
   };
 

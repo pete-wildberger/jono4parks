@@ -20,32 +20,46 @@
         <td>{{ x.lastName }}</td>
         <td>{{ x.occupation }}</td>
         <td></td>
-        <td><button ng-click='dc.openEndorseModal(x._id)'>Edit</button></td>
+        <td><button ng-click='dc.openEndorseModal(x)'>Edit</button></td>
         <td><button ng-click='dc.removeRow("/private/endorse", x._id)'>DELETE</button></td>
       </tr>
     </table>
   </div>
 </div>
-<div class="row" ng-if="dc.event">
-  <div class="col-md-12">
-    <table id="events">
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Employee ID</th>
-        <th>Job Title</th>
-        <th>Pay</th>
-        <th></th>
-      </tr>
-      <tr ng-repeat='employees in dc.events'>
-        <td>{{ employees.first | lowercase}}</td>
-        <td>{{ employees.last | uppercase}}</td>
-        <td>{{ employees.id }}</td>
-        <td>{{ employees.title | json}}</td>
-        <td>{{ employees.pay | currency}}</td>
-        <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
-      </tr>
-    </table>
+<div ng-if="dc.event">
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <input type="text" placeholder="Event Name" value="">
+        <input type="date" placeholder="Event Date" value="">
+        <input type="text" placeholder="Time" value="">
+        <input type="text" placeholder="Location" value="">
+        <textarea placeholder="Description" rows="8" cols="80"></textarea>
+        <button type="button" name="button">Save Event</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table id="events">
+        <tr>
+          <th>Event Name</th>
+          <th>Event Date</th>
+          <th>Time</th>
+          <th>Location</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        <tr ng-repeat='x in dc.events'>
+          <td>{{ x.eventName}}</td>
+          <td>{{ x.eventDate }}</td>
+          <td>{{ x.time }}</td>
+          <td>{{ x.location }}</td>
+          <td><button type="button" name="button">EDIT</button></td>
+          <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
 <div class="row" ng-if="dc.message">
@@ -54,17 +68,17 @@
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Employee ID</th>
-        <th>Job Title</th>
-        <th>Pay</th>
-        <th></th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Delete</th>
       </tr>
       <tr ng-repeat='employees in dc.messages'>
-        <td>{{ employees.first | lowercase}}</td>
-        <td>{{ employees.last | uppercase}}</td>
-        <td>{{ employees.id }}</td>
-        <td>{{ employees.title | json}}</td>
-        <td>{{ employees.pay | currency}}</td>
+        <td>{{ employees.first }}</td>
+        <td>{{ employees.last }}</td>
+        <td>{{ employees.phone | tel}}</td>
+        <td>{{ employees.email }}</td>
+        <td>{{ employees.message }}</td>
         <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
       </tr>
     </table>
@@ -72,22 +86,72 @@
 </div>
 
 <!-- The Modal -->
-<div id="subjective" class="modal">
+<div id="endorseModal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="document.getElementById('subjective').style.display = 'none'">&times;</span>
+    <span class="close" onclick="document.getElementById('endorseModal').style.display = 'none'">&times;</span>
 
     <p><strong>First Name: </strong></p>
-    <p editable-text="dc.changes.occupation">
-      {{ dc.changes.firstName || 'empty' }}<br>
+    <p editable-text="dc.changes.firstName">
+      {{ dc.changes.firstName }}<br>
     </p>
     <p><strong>Last Name: </strong></p>
-    <p editable-text="dc.changes.occupation">
-      {{ dc.changes.lastName || 'empty' }}
+    <p editable-text="dc.changes.lastName">
+      {{ dc.changes.lastName }}
     </p>
     <p><strong>Occupation: </strong></p>
     <p editable-text="dc.changes.occupation">
-      {{ dc.changes.occupation || 'empty' }}
+      {{ dc.changes.occupation }}
     </p>
-    <button ng-click="editEndorse(dc.changes._id)"></button>
+    <button ng-click="editEndorse(dc.changes._id)">Edit</button>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="eventModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('eventModal').style.display = 'none'">&times;</span>
+
+    <p><strong>Event Name: </strong></p>
+    <p editable-text="dc.changes.eventName">
+      {{ dc.changes.eventName }}<br>
+    </p>
+    <p><strong>Date: </strong></p>
+    <p editable-text="dc.changes.date">
+      {{ dc.changes.eventDate }}
+    </p>
+    <p><strong>Time: </strong></p>
+    <p editable-text="dc.changes.time">
+      {{ dc.changes.time }}
+    </p>
+    <p><strong>Location: </strong></p>
+    <p editable-text="dc.changes.location">
+      {{ dc.changes.location }}
+    </p>
+    <p><strong>Description: </strong></p>
+    <p editable-text="dc.changes.description">
+      {{ dc.changes.description }}
+    </p>
+    <button ng-click="editEndorse(dc.changes._id)">Edit</button>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="messageModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('messageModal').style.display = 'none'">&times;</span>
+
+    <p><strong>First Name: </strong></p>
+    <p editable-text="dc.changes.firstName">
+      {{ dc.changes.firstName }}<br>
+    </p>
+    <p><strong>Last Name: </strong></p>
+    <p editable-text="dc.changes.lastName">
+      {{ dc.changes.lastName }}
+    </p>
+    <p><strong>Occupation: </strong></p>
+    <p editable-text="dc.changes.occupation">
+      {{ dc.changes.occupation }}
+    </p>
+    <button ng-click="editEndorse(dc.changes._id)">Edit</button>
   </div>
 </div>
