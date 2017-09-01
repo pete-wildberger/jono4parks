@@ -20,7 +20,7 @@
         <td>{{ x.lastName }}</td>
         <td>{{ x.occupation }}</td>
         <td></td>
-        <td><button ng-click='dc.editRow(x._id)'>Edit</button></td>
+        <td><button ng-click='dc.openEndorseModal(x._id)'>Edit</button></td>
         <td><button ng-click='dc.removeRow("/private/endorse", x._id)'>DELETE</button></td>
       </tr>
     </table>
@@ -68,5 +68,26 @@
         <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
       </tr>
     </table>
+  </div>
+</div>
+
+<!-- The Modal -->
+<div id="subjective" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('subjective').style.display = 'none'">&times;</span>
+
+    <p><strong>First Name: </strong></p>
+    <p editable-text="dc.changes.occupation">
+      {{ dc.changes.firstName || 'empty' }}<br>
+    </p>
+    <p><strong>Last Name: </strong></p>
+    <p editable-text="dc.changes.occupation">
+      {{ dc.changes.lastName || 'empty' }}
+    </p>
+    <p><strong>Occupation: </strong></p>
+    <p editable-text="dc.changes.occupation">
+      {{ dc.changes.occupation || 'empty' }}
+    </p>
+    <button ng-click="editEndorse(dc.changes._id)"></button>
   </div>
 </div>

@@ -7,6 +7,14 @@ app.controller('DashController', function($location, httpService, AuthFactory) {
   vm.event = false;
   vm.message = false;
   vm.endorsements = [];
+  vm.changes = {};
+
+  window.onclick = function(event) {
+    id = event.target.getAttribute("id");
+    if (event.target.getAttribute("class") == 'modal') {
+      document.getElementById(id).style.display = 'none';
+    }
+  };
 
   hs.getItem('auth').then(function(res) {
     console.log(res.data);
@@ -73,6 +81,18 @@ app.controller('DashController', function($location, httpService, AuthFactory) {
       vm.message = !vm.message;
     }
   };
+  vm.openEndorseModal = function(id){
+    let idx = vm.endorsements.indexOf(id);
+    vm.changes = vm.endorsements[idx];
+  };
+
+  vm.editEndorse = function(id){
+
+    hs.putItem('/private/endorse', id, vm.changes).then(function(res){
+      vm.changes = {};
+      vm.populateTable('/endorse');
+    });
+  };
 
   vm.removeRow = function(path, id) {
     console.log('remove');
@@ -80,4 +100,6 @@ app.controller('DashController', function($location, httpService, AuthFactory) {
       vm.populateTable('/endorse');
   });
   };
+
+
 });
