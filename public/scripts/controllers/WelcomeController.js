@@ -1,4 +1,7 @@
-app.controller('WelcomeController', function($location, httpService) {
+angular.module('myApp')
+.controller('WelcomeController', WelcomeController);
+WelcomeController.$inject=['$location', 'httpService'];
+function WelcomeController($location, httpService) {
   console.log('WelcomeController');
   const vm = this;
-});
+}

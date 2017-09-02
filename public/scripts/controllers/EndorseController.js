@@ -1,4 +1,9 @@
-app.controller('EndorseController', function($location, httpService) {
+angular.module('myApp')
+.controller('EndorseController', EndorseController);
+
+EndorseController.$inject=['$location', 'httpService'];
+
+function EndorseController($location, httpService){
   console.log('EndorseController');
   const vm = this,
     hs = httpService;
@@ -41,4 +46,4 @@ vm.displayEndorsements = function(){
   };//end add
 
 vm.displayEndorsements();
-});//end controller
+}//end controller

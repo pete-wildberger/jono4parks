@@ -1,4 +1,7 @@
-app.service('httpService', function($http) {
+angular.module('myApp')
+.service('httpService', httpService);
+httpService.$inject = ['$http'];
+function httpService($http) {
   var sv = this;
 
   // httpServices
@@ -37,4 +40,4 @@ app.service('httpService', function($http) {
   			return response;
   		});
   	}; // end deleteItem
-});
+}

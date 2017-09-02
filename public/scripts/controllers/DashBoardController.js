@@ -1,4 +1,9 @@
-app.controller('DashController', function($location, httpService, AuthFactory) {
+angular.module('myApp')
+.controller('DashController', DashController);
+
+DashController.$inject=['$location', 'httpService', 'AuthFactory'];
+
+function DashController($location, httpService, AuthFactory) {
   console.log('DashController');
   const vm = this;
   const hs = httpService
@@ -106,4 +111,4 @@ app.controller('DashController', function($location, httpService, AuthFactory) {
   };
 
 
-});
+}

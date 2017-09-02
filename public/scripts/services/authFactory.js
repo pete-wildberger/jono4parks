@@ -1,4 +1,9 @@
-app.factory('AuthFactory', function ($http) {
+angular.module('myApp')
+.factory('AuthFactory', AuthFactory);
+
+AuthFactory.$inject=['$http'];
+
+function AuthFactory($http) {
   var Status = {
     loggedIn: false,
   };
@@ -24,4 +29,4 @@ app.factory('AuthFactory', function ($http) {
     },
   };
 
-});
+}

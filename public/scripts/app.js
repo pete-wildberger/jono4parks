@@ -10,15 +10,14 @@ function closeNav() {
 }
 
 // AngularJS app
-const app = angular.module('myApp', ["ngRoute", "xeditable"]);
-
-
+angular.module('myApp', ["ngRoute", "xeditable"])
 // xeditable
-app.run(function(editableOptions) {
+.run(function(editableOptions) {
   editableOptions.theme = 'default'; // bootstrap3 theme. Can be also 'bs2', 'default'
 });
 //phone filter
-app.filter('tel', function() {
+angular.module('myApp', ["ngRoute", "xeditable"])
+.filter('tel', function() {
 	return function(tel) {
 		if (!tel) {
 			return '';
@@ -59,7 +58,8 @@ app.filter('tel', function() {
 	};
 });
 //phone inputs
-app.directive('phoneInput', function($filter, $browser) {
+angular.module('myApp', ["ngRoute", "xeditable"])
+.directive('phoneInput', function($filter, $browser) {
 	return {
 		require: 'ngModel',
 		link: function($scope, $element, $attrs, ngModelCtrl) {

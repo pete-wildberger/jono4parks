@@ -1,4 +1,7 @@
-app.config(function($routeProvider) {
+angular.module('myApp')
+  .config(router);
+  router.$inject= ['$routeProvider'];
+function router($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: "/views/partials/welcome.html",
         controller: "WelcomeController as wc",
@@ -24,4 +27,4 @@ app.config(function($routeProvider) {
         controller: "IndexController as ic",
         controllerAs:"ic"
     });
-  });
+  }
