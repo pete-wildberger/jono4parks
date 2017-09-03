@@ -132,7 +132,7 @@ function DashController($location, httpService, AuthFactory) {
       document.getElementById('endorseModal').style.display = 'none';
     });
   };
-  vm.editEvent = function(id) {
+  vm.editEvents = function(id) {
     hs.putItem('/private/events', id, vm.changes).then(function(res) {
       vm.changes = {};
       vm.populateTable('/events');
