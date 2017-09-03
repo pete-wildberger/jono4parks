@@ -15,9 +15,9 @@ function DashController($location, httpService, AuthFactory) {
   vm.changes = {};
 
   window.onclick = function(event) {
-    id = event.target.getAttribute("id");
+    let tId = event.target.getAttribute("id");
     if (event.target.getAttribute("class") == 'modal') {
-      document.getElementById(id).style.display = 'none';
+      document.getElementById(tId).style.display = 'none';
     }
   };
 

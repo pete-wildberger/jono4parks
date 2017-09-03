@@ -5,7 +5,7 @@ var messageSchema = mongoose.Schema({
   lastName: String,
   phone: String,
   email: String,
-  message: String
+  comment: String
 
 });
 
