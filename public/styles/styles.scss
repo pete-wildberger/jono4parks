@@ -277,7 +277,11 @@ div.card {
   .noPhone{
     display: none;
   }
-
+a {
+  color: white;
+  color: inherit; /* blue colors for links too */
+ text-decoration: inherit; /* no underline */
+}
   .side{
     display: inline-block;
     float: left;

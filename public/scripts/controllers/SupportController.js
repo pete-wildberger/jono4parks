@@ -1,8 +1,8 @@
 angular.module('myApp')
   .controller('SupportController', SupportController);
-SupportController.$inject = ['$location', 'httpService', 'AuthFactory'];
+SupportController.$inject = ['$location', 'httpService', 'AuthFactory', '$window'];
 
-function SupportController($location, httpService, AuthFactory) {
+function SupportController($location, httpService, AuthFactory, $window) {
   console.log('SupportController');
   const vm = this;
   const hs = httpService;
@@ -32,5 +32,9 @@ function SupportController($location, httpService, AuthFactory) {
     });
   };
 
+vm.go = function (path) {
+  console.log('donate');
+  $window.location.href = (path);
+};
 
 } //end controller
