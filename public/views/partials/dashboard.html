@@ -15,7 +15,7 @@
         <th>Edit</th>
         <th>Delete</th>
       </tr>
-      <tr ng-repeat='x in dc.endorsements'>
+      <tr ng-repeat='x in dc.tableData'>
         <td>{{ x.firstName }}</td>
         <td>{{ x.lastName }}</td>
         <td>{{ x.occupation }}</td>
@@ -50,7 +50,7 @@
           <th>Edit</th>
           <th>Delete</th>
         </tr>
-        <tr ng-repeat='x in dc.events'>
+        <tr ng-repeat='x in dc.tableData'>
           <td>{{ x.eventName}}</td>
           <td>{{ x.eventDate }}</td>
           <td>{{ x.time }}</td>
@@ -73,12 +73,12 @@
         <th>Message</th>
         <th>Delete</th>
       </tr>
-      <tr ng-repeat='employees in dc.messages'>
-        <td>{{ employees.first }}</td>
-        <td>{{ employees.last }}</td>
-        <td>{{ employees.phone | tel}}</td>
-        <td>{{ employees.email }}</td>
-        <td>{{ employees.message }}</td>
+      <tr ng-repeat='x in dc.tableData'>
+        <td>{{ x.firstName }}</td>
+        <td>{{ x.lastName }}</td>
+        <td>{{ x.phone }}</td>
+        <td>{{ x.email }}</td>
+        <td>{{ x.comment }}</td>
         <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
       </tr>
     </table>
@@ -130,27 +130,6 @@
     <p><strong>Description: </strong></p>
     <p editable-text="dc.changes.description">
       {{ dc.changes.description }}
-    </p>
-    <button ng-click="dc.editEndorse(dc.changes._id)">Edit</button>
-  </div>
-</div>
-
-<!-- The Modal -->
-<div id="messageModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="document.getElementById('messageModal').style.display = 'none'">&times;</span>
-
-    <p><strong>First Name: </strong></p>
-    <p editable-text="dc.changes.firstName">
-      {{ dc.changes.firstName }}<br>
-    </p>
-    <p><strong>Last Name: </strong></p>
-    <p editable-text="dc.changes.lastName">
-      {{ dc.changes.lastName }}
-    </p>
-    <p><strong>Occupation: </strong></p>
-    <p editable-text="dc.changes.occupation">
-      {{ dc.changes.occupation }}
     </p>
     <button ng-click="dc.editEndorse(dc.changes._id)">Edit</button>
   </div>

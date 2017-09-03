@@ -12,12 +12,13 @@
 
 <div class="row">
   <div class="col-md-12">
-    <form class="" action="index.html" method="post">
-      <input type="text" placeholder="First Name" ng.model="sc.firstName">
-      <input type="text" placeholder="Last Name" ng.model="sc.lastName">
-      <input phone-input placeholder="Phone" ng.model="sc.phone">
-      <input type="email" placeholder="Email" ng.model="sc.email">
-      <textarea name="name" rows="8" cols="80" placeholder="Comment" ng.model="sc.comment"></textarea>
+    <form name="support">
+      <input type="text" placeholder="First Name" ng-model="sc.firstName" required><span>&#x2a</span>
+      <input type="text" placeholder="Last Name" ng-model="sc.lastName" required><span>&#x2a</span>
+      <input type="email" placeholder="Email" ng-model="sc.email" required><span>&#x2a</span>
+      <input phone-input type="text" placeholder="Phone (555)555-5555" ng-model="sc.phone">
+      <textarea name="name" rows="8" cols="80" placeholder="Comment" ng-model="sc.comment"></textarea>
+       <button ng-click="sc.addToList()" ng-disabled="support.$invalid">Support</button>
     </form>
   </div>
 </div>

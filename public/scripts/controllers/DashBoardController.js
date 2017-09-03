@@ -1,7 +1,7 @@
 angular.module('myApp')
-.controller('DashController', DashController);
+  .controller('DashController', DashController);
 
-DashController.$inject=['$location', 'httpService', 'AuthFactory'];
+DashController.$inject = ['$location', 'httpService', 'AuthFactory'];
 
 function DashController($location, httpService, AuthFactory) {
   console.log('DashController');
@@ -11,7 +11,7 @@ function DashController($location, httpService, AuthFactory) {
   console.log('log', vm.endorse);
   vm.event = false;
   vm.message = false;
-  vm.endorsements = [];
+  vm.tableData = [];
   vm.changes = {};
 
   window.onclick = function(event) {
@@ -30,14 +30,14 @@ function DashController($location, httpService, AuthFactory) {
       $location.path('/');
     }
   }); //end httpService get item
-  vm.populateTable = function(path){
-  hs.getItem(path).then(function(res){
-    if(path == '/endorse'){
-      console.log('res', res.data);
-    vm.endorsements = res.data;
-  }
-  });
-};
+
+
+  vm.populateTable = function(path) {
+    hs.getItem(path).then(function(res) {
+      console.log(res.data);
+        vm.tableData = res.data;
+    });
+  };
 
   AuthFactory.isLoggedIn()
     .then(function(response) {
@@ -80,13 +80,14 @@ function DashController($location, httpService, AuthFactory) {
       vm.endorse = false;
       vm.event = !vm.event;
       vm.message = false;
-    } else {
+    } else if (id == 2) {
+      vm.populateTable('/messages');
       vm.endorse = false;
       vm.event = false;
       vm.message = !vm.message;
     }
   };
-  vm.openEndorseModal = function(id){
+  vm.openEndorseModal = function(id) {
     console.log('id', id);
     document.getElementById('endorseModal').style.display = 'block';
     let idx = vm.endorsements.indexOf(id);
@@ -95,8 +96,8 @@ function DashController($location, httpService, AuthFactory) {
     console.log('chi chi chi', vm.changes);
   };
 
-  vm.editEndorse = function(id){
-    hs.putItem('/private/endorse', id, vm.changes).then(function(res){
+  vm.editEndorse = function(id) {
+    hs.putItem('/private/endorse', id, vm.changes).then(function(res) {
       vm.changes = {};
       vm.populateTable('/endorse');
       document.getElementById('endorseModal').style.display = 'none';
@@ -107,7 +108,7 @@ function DashController($location, httpService, AuthFactory) {
     console.log('remove');
     hs.deleteItem(path, id).then(function(res) {
       vm.populateTable('/endorse');
-  });
+    });
   };
 
 

@@ -11,7 +11,7 @@ p, li {
 table {
     color: #333;
     font-family: Helvetica;
-    width: 800px;
+    width: 100%;
     border-collapse:
     collapse; border-spacing: 0;
     margin: auto;
@@ -32,6 +32,9 @@ th {
 td {
     background: #FAFAFA;
     text-align: center;
+}
+tr{
+  margin: 2% 0%;
 }
 // modal
 .modal {

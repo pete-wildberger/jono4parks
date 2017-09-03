@@ -15,8 +15,8 @@ function EndorseController($location, httpService){
 vm.displayEndorsements = function(){
   hs.getItem('/endorse').then(function(res) {
     console.log('getres', res);
-    endorseArr = res.data;
-    listLength = Math.ceil(endorseArr.length / 3);
+    let endorseArr = res.data;
+    let listLength = Math.ceil(endorseArr.length / 3);
     for (let i = 0; i < endorseArr.length; i++) {
       console.log('looping', i);
       if(i <= listLength){
@@ -31,12 +31,12 @@ vm.displayEndorsements = function(){
 };
 
   vm.addEndorsement = function() {
-    ots = {
+    let its = {
       firstName: vm.firstName,
       lastName: vm.lastName,
       occupation: vm.occupation
     };
-    hs.postItem('/endorse', ots).then(function(res) {
+    hs.postItem('/endorse', its).then(function(res) {
       console.log('postres', res);
       vm.firstName = undefined;
       vm.lastName = undefined;

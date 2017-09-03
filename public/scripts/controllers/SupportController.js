@@ -8,22 +8,29 @@ function SupportController($location, httpService, AuthFactory) {
   const hs = httpService;
 
   vm.addToList = function() {
-    its = {
+    let its = {
       firstName: vm.firstName,
       lastName: vm.lastName,
       phone: vm.phone,
       email: vm.email,
       comment: vm.comment
     };
+    console.log('its', its);
     hs.postItem('/messages', its).then(function(res) {
       swal({
         title: 'Thank you for your Support!',
         text: "We will be in contact",
-        imageUrl: 'public/assets/logo.png',
+        imageUrl: 'public/assets/jono4parks.png',
         imageWidth: 199,
         imageHeight: 84
       });
+      vm.firstName = undefined;
+      vm.lastName = undefined;
+      vm.phone = undefined;
+      vm.email = undefined;
+      vm.comment = undefined;
     });
   };
 
-}//end controller
+
+} //end controller

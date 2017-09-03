@@ -26,5 +26,13 @@ function router($routeProvider) {
         templateUrl: "/views/partials/about.html",
         controller: "IndexController as ic",
         controllerAs:"ic"
+    }).when('/support', {
+        templateUrl: "/views/partials/support.html",
+        controller: "SupportController as sc",
+        controllerAs:"sc"
+    }).when('/events', {
+        templateUrl: "/views/partials/events.html",
+        controller: "EventsController as ec",
+        controllerAs:"ec"
     });
   }
