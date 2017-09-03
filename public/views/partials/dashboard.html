@@ -1,8 +1,10 @@
 <div class="row">
-  <button type="button" ng-click="dc.showTable(0)">Endorsements</button>
-  <button type="button" ng-click="dc.showTable(1)">Events</button>
-  <button type="button" ng-click="dc.showTable(2)">Messages</button>
+  <div class="col-md-12">
+  <button class="en-btn" type="button" ng-click="dc.showTable(0)">Endorsements</button>
+  <button class="en-btn" type="button" ng-click="dc.showTable(1)">Events</button>
+  <button class="en-btn" type="button" ng-click="dc.showTable(2)">Messages</button>
   <a ng-if="dc.displayLogout" href="#!" ng-click="dc.logout()"><span class="menuItem">Logout</span></a>
+  </div>
 </div>
 <div class="row" ng-if="dc.endorse">
   <div class="col-md-12">
@@ -29,14 +31,16 @@
 <div ng-if="dc.event">
   <div class="row">
     <div class="col-md-12">
+      <div class="card">
       <form>
-        <input type="text" placeholder="Event Name" value="">
-        <input type="date" placeholder="Event Date" value="">
-        <input type="text" placeholder="Time" value="">
-        <input type="text" placeholder="Location" value="">
-        <textarea placeholder="Description" rows="8" cols="80"></textarea>
-        <button type="button" name="button">Save Event</button>
+        <input class="en-in" type="text" placeholder="Event Name" ng-model="dc.eventName">
+        <input class="en-in" type="date" placeholder="Event Date" ng-model="dc.date">
+        <input class="en-in" type="text" placeholder="Time" ng-model="dc.time">
+        <input class="en-in" type="text" placeholder="Location" ng-model="dc.location">
+        <textarea class="block centered" placeholder="Description" rows="8" cols="80" ng-model="dc.description"></textarea>
+        <button class="block en-btn" ng-click="dc.addToEvents()">Save Event</button>
       </form>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -52,11 +56,11 @@
         </tr>
         <tr ng-repeat='x in dc.tableData'>
           <td>{{ x.eventName}}</td>
-          <td>{{ x.eventDate }}</td>
+          <td>{{ x.date | date:'mediumDate'}}</td>
           <td>{{ x.time }}</td>
           <td>{{ x.location }}</td>
-          <td><button type="button" name="button">EDIT</button></td>
-          <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
+          <td><button ng-click="dc.openEventModal(x)">EDIT</button></td>
+          <td><button ng-click='dc.removeEvent(x._id)'>DELETE</button></td>
         </tr>
       </table>
     </div>
@@ -79,7 +83,7 @@
         <td>{{ x.phone }}</td>
         <td>{{ x.email }}</td>
         <td>{{ x.comment }}</td>
-        <td><button ng-click='dc.removeRow($index)'>DELETE</button></td>
+        <td><button ng-click='dc.removeMessage(x._id)'>DELETE</button></td>
       </tr>
     </table>
   </div>
@@ -117,7 +121,7 @@
     </p>
     <p><strong>Date: </strong></p>
     <p editable-text="dc.changes.date">
-      {{ dc.changes.eventDate }}
+      {{ dc.changes.date | date: 'mediumDate' }}
     </p>
     <p><strong>Time: </strong></p>
     <p editable-text="dc.changes.time">
@@ -131,6 +135,6 @@
     <p editable-text="dc.changes.description">
       {{ dc.changes.description }}
     </p>
-    <button ng-click="dc.editEndorse(dc.changes._id)">Edit</button>
+    <button ng-click="dc.editEvents(dc.changes._id)">Edit</button>
   </div>
 </div>

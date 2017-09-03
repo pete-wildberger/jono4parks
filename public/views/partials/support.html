@@ -1,24 +1,35 @@
 <div class="row">
   <div class="col-md-12">
-    <h1>Stripe</h1>
+    <h1 class="text-center">Donate</h1>
+    <a class="centered donate-donorbox" href="https://donorbox.org/jono-4-parks">Donate</a>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <h1>Support Jono</h1>
+    <h1 class="text-center">Support Jono</h1>
+    <p class="text-center">
+      Jono Cowgill<br>
+      2517 Bryant Ave S, #102 <br>
+      Minneapolis, MN 55405 <br>
+      612-598-5157<br>
+      jono4parks@gmail.com
+    </p>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <form name="support">
-      <input type="text" placeholder="First Name" ng-model="sc.firstName" required><span>&#x2a</span>
-      <input type="text" placeholder="Last Name" ng-model="sc.lastName" required><span>&#x2a</span>
-      <input type="email" placeholder="Email" ng-model="sc.email" required><span>&#x2a</span>
-      <input phone-input type="text" placeholder="Phone (555)555-5555" ng-model="sc.phone">
-      <textarea name="name" rows="8" cols="80" placeholder="Comment" ng-model="sc.comment"></textarea>
-       <button ng-click="sc.addToList()" ng-disabled="support.$invalid">Support</button>
-    </form>
+    <div class="card">
+      <p>Get in Contact</p>
+      <form name="support">
+        <input class="en-in" type="text" placeholder="First Name" ng-model="sc.firstName" required><span>&#x2a</span>
+        <input class="en-in clock" type="text" placeholder="Last Name" ng-model="sc.lastName" required><span>&#x2a</span>
+        <input class="en-in" type="email" placeholder="Email" ng-model="sc.email" required><span>&#x2a</span>
+        <input class="en-in" type="text" placeholder="Phone (555)555-5555" ng-model="sc.phone">
+        <textarea class="block centered" rows="8" cols="80" placeholder="Comment" ng-model="sc.comment"></textarea>
+        <button class="block en-btn" ng-click="sc.addToList()" ng-disabled="support.$invalid">Support</button>
+      </form>
+    </div>
   </div>
 </div>

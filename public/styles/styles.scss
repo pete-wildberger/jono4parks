@@ -73,8 +73,9 @@ tr{
 
 
 .line{
+  margin: auto;
   border-top: solid black 1px;
-  width: 95%;
+  width: 90%;
 }
 .logo{
   margin: 1.5% 0%;
@@ -86,6 +87,9 @@ tr{
 }
 .block{
   display: block;
+}
+.centered{
+  margin: auto !important;
 }
 .title{
   position: fixed;
@@ -188,14 +192,15 @@ tr{
     transition: 0.9s;
     transform: rotateY(180deg);
 }
-//
-// .donate{
-//   border: solid red 2px;
-// }
-// .donate:hover{
-//   background-color: red;
-//   color: white;
-// }
+.event-head{
+  font-weight: bold;
+}
+.event-data{
+  font-size: 1em;
+}
+.event-top{
+  margin-bottom: 2%;
+}
 .social{
   margin: 2%;
 }
@@ -209,6 +214,21 @@ p.quote{
   -webkit-filter: opacity(70%); /* Safari 6.0 - 9.0 */
     filter: opacity(70%);
 
+}
+.donate-donorbox{
+  background-color: #8A00C5;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3% auto;
+}
+.donate-donorbox:hover{
+  background-color: #A5E8B8;
+  font-style: none;
 }
 .en-in{
   margin: 2% auto;
@@ -224,7 +244,7 @@ p.quote{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 2% auto;
+    margin: 3% auto;
 }
 .en-btn:hover{
   background-color: #A5E8B8;
@@ -273,7 +293,7 @@ div.card {
   .ham-allign{
     margin: 25% 30%;
   }
-  p, h2, li, input, button {
+  p, h2, li, input, button, .event-data {
   font-size: 3em !important;
   }
 

@@ -77,6 +77,7 @@ function DashController($location, httpService, AuthFactory) {
       vm.event = false;
       vm.message = false;
     } else if (id == 1) {
+      vm.populateTable('/events');
       vm.endorse = false;
       vm.event = !vm.event;
       vm.message = false;
@@ -90,10 +91,38 @@ function DashController($location, httpService, AuthFactory) {
   vm.openEndorseModal = function(id) {
     console.log('id', id);
     document.getElementById('endorseModal').style.display = 'block';
-    let idx = vm.endorsements.indexOf(id);
+    let idx = vm.tableData.indexOf(id);
     console.log('idx', idx);
-    vm.changes = vm.endorsements[idx];
+    vm.changes = vm.tableData[idx];
     console.log('chi chi chi', vm.changes);
+  };
+  vm.openEventModal = function(id) {
+    console.log('id', id);
+    console.log('table', vm.tableData);
+    document.getElementById('eventModal').style.display = 'block';
+    let idx = vm.tableData.indexOf(id);
+    console.log('idx', idx);
+    vm.changes = vm.tableData[idx];
+    console.log('chi chi chi', vm.changes);
+  };
+
+  vm.addToEvents = function() {
+    let its = {
+      eventName: vm.eventName,
+      date: vm.date,
+      time: vm.time,
+      location: vm.location,
+      description: vm.description
+    };
+    console.log('its', its);
+    hs.postItem('/private/events', its).then(function(res) {
+      vm.eventName = undefined;
+      vm.date = undefined;
+      vm.time = undefined;
+      vm.location = undefined;
+      vm.description = undefined;
+      vm.populateTable('/events');
+    });
   };
 
   vm.editEndorse = function(id) {
@@ -103,13 +132,30 @@ function DashController($location, httpService, AuthFactory) {
       document.getElementById('endorseModal').style.display = 'none';
     });
   };
-
-  vm.removeRow = function(path, id) {
-    console.log('remove');
-    hs.deleteItem(path, id).then(function(res) {
-      vm.populateTable('/endorse');
+  vm.editEvent = function(id) {
+    hs.putItem('/private/events', id, vm.changes).then(function(res) {
+      vm.changes = {};
+      vm.populateTable('/events');
+      document.getElementById('eventModal').style.display = 'none';
     });
   };
 
-
+  vm.removeEndorse = function(id) {
+    console.log('remove');
+    hs.deleteItem('private/endorse', id).then(function(res) {
+      vm.populateTable('/endorse');
+    });
+  };
+  vm.removeMessage = function(id) {
+    console.log('remove');
+    hs.deleteItem('private/messages', id).then(function(res) {
+      vm.populateTable('/messages');
+    });
+  };
+  vm.removeEvent = function(id) {
+    console.log('remove');
+    hs.deleteItem('private/events', id).then(function(res) {
+      vm.populateTable('/events');
+    });
+  };
 }
