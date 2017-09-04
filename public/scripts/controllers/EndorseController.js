@@ -8,25 +8,21 @@ function EndorseController($location, httpService){
   const vm = this,
     hs = httpService;
 
-    vm.colOneArr = [];
-    vm.colTwoArr = [];
-    vm.colThreeArr = [];
+
+    function chunk(arr, size) {
+      var newArr = [];
+      for (var i=0; i<arr.length; i+=size) {
+        newArr.push(arr.slice(i, i+size));
+      }
+      return newArr;
+    }
+
+
 
 vm.displayEndorsements = function(){
   hs.getItem('/endorse').then(function(res) {
     console.log('getres', res);
-    let endorseArr = res.data;
-    let listLength = Math.ceil(endorseArr.length / 3);
-    for (let i = 0; i < endorseArr.length; i++) {
-      console.log('looping', i);
-      if(i <= listLength){
-      vm.colOneArr.push(endorseArr[i]);
-    } else if (i > listLength && i <= (2 * listLength)){
-      vm.colTwoArr.push(endorseArr[i]);
-    } else {
-      vm.colThreeArr.push(endorseArr[i]);
-    }
-    }
+  vm.endorseArr = chunk(res.data, 3);
   });
 };
 
