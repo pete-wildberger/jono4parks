@@ -34,6 +34,14 @@ vm.displayEndorsements = function(){
     };
     hs.postItem('/endorse', its).then(function(res) {
       console.log('postres', res);
+      swal({
+        title: 'Sweet!',
+        text: 'Thank you for your support!',
+        imageUrl: 'assets/logo.png',
+        imageWidth: 400,
+        imageHeight: 200,
+        animation: false
+      });
       vm.firstName = undefined;
       vm.lastName = undefined;
       vm.occupation = undefined;

@@ -34,7 +34,7 @@ function SupportController($location, httpService, AuthFactory, $window) {
 
 vm.go = function (path) {
   console.log('donate');
-  $window.location.href = (path);
+  $window.open(path);
 };
 
 } //end controller
