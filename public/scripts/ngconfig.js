@@ -4,8 +4,8 @@ angular.module('myApp')
 function router($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: "/views/partials/welcome.html",
-        controller: "WelcomeController as wc",
-        controllerAs:"wc"
+        controller: "IndexController as ic",
+        controllerAs:"ic"
     }).when('/endorsements', {
         templateUrl: "/views/partials/endorse.html",
         controller: "EndorseController as ec",
