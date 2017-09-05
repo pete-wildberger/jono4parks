@@ -258,6 +258,7 @@ div.card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
+
 //phone styles
 @media screen and (max-width: 994px){
 
@@ -282,6 +283,10 @@ div.card {
 a {
   color: white;
   color: inherit; /* blue colors for links too */
+ text-decoration: inherit; /* no underline */
+}
+.design{
+  text-align: right;
  text-decoration: inherit; /* no underline */
 }
   .side{
