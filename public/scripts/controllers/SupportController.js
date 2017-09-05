@@ -20,7 +20,7 @@ function SupportController($location, httpService, AuthFactory, $window) {
       swal({
         title: 'Thank you for your Support!',
         text: "We will be in contact",
-        imageUrl: 'public/assets/jono4parks.png',
+        imageUrl: 'assets/jono4parks.png',
         imageWidth: 199,
         imageHeight: 84
       });
