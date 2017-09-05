@@ -37,6 +37,8 @@
         <input class="en-in" type="date" placeholder="Event Date" ng-model="dc.date">
         <input class="en-in" type="text" placeholder="Time" ng-model="dc.time">
         <input class="en-in" type="text" placeholder="Location" ng-model="dc.location">
+        <input class="en-in" type="text" placeholder="Event url (http://)" ng-model="dc.url">
+        <input class="en-in" type="text" placeholder="Embed map url (http://)" ng-model="dc.mapsrc">
         <textarea class="block centered" placeholder="Description" rows="8" cols="80" ng-model="dc.description"></textarea>
         <button class="block en-btn" ng-click="dc.addToEvents()">Save Event</button>
       </form>
@@ -153,6 +155,10 @@
     <p><strong>Location: </strong></p>
     <p editable-text="dc.changes.location">
       {{ dc.changes.location }}
+    </p>
+    <p><strong>Event url: </strong></p>
+    <p editable-text="dc.changes.url">
+      {{ dc.changes.url }}
     </p>
     <p><strong>Description: </strong></p>
     <p editable-text="dc.changes.description">

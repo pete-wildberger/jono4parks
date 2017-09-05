@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div ng-repeat="x in ec.eventsArr">
+<div ng-repeat="x in ec.eventsArr | orderBy : 'date'">
   <div class="line"></div>
   <div class="row">
     <div class="col-md-3">
@@ -21,6 +21,7 @@
     </div>
     <div class="col-md-9">
       <p>{{x.description}}</p>
+      <a ng-if="x.url" href="{{ x.url }}" target="_blank">{{ x.eventName }}</a>
     </div>
   </div>
 </div>

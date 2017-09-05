@@ -121,6 +121,7 @@ function DashController($location, httpService, AuthFactory) {
       date: vm.date,
       time: vm.time,
       location: vm.location,
+      url: vm.url,
       description: vm.description
     };
     console.log('its', its);
