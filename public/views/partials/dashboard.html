@@ -74,7 +74,7 @@
         <th>Last Name</th>
         <th>Phone</th>
         <th>Email</th>
-        <th>Message</th>
+        <th>Read</th>
         <th>Delete</th>
       </tr>
       <tr ng-repeat='x in dc.tableData'>
@@ -82,7 +82,7 @@
         <td>{{ x.lastName }}</td>
         <td>{{ x.phone }}</td>
         <td>{{ x.email }}</td>
-        <td>{{ x.comment }}</td>
+        <td><button ng-if="x.comment" ng-click="dc.openMessageModal(x)">Read</button></td>
         <td><button ng-click='dc.removeMessage(x._id)'>DELETE</button></td>
       </tr>
     </table>
@@ -109,6 +109,29 @@
     <button ng-click="dc.editEndorse(dc.changes._id)">Edit</button>
   </div>
 </div>
+
+<!-- The Modal -->
+<div id="messageModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('messageModal').style.display = 'none'">&times;</span>
+
+    <p><strong>From: </strong>
+      {{ dc.changes.firstName }} {{ dc.changes.lastName }}
+    </p>
+    <p><strong>Phone: </strong>
+      {{ dc.changes.phone }}
+    </p>
+    <p><strong>Email:</strong>
+      {{ dc.changes.email }}
+    </p>
+    <p><strong>Message: </strong></p>
+    <p>
+      {{ dc.changes.comment }}
+    </p>
+    <button onclick="document.getElementById('messageModal').style.display = 'none'">Close</button>
+  </div>
+</div>
+
 
 <!-- The Modal -->
 <div id="eventModal" class="modal">

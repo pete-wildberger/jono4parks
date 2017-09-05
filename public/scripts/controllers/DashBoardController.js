@@ -105,6 +105,15 @@ function DashController($location, httpService, AuthFactory) {
     vm.changes = vm.tableData[idx];
     console.log('chi chi chi', vm.changes);
   };
+  vm.openMessageModal = function(id) {
+    console.log('id', id);
+    console.log('table', vm.tableData);
+    document.getElementById('messageModal').style.display = 'block';
+    let idx = vm.tableData.indexOf(id);
+    console.log('idx', idx);
+    vm.changes = vm.tableData[idx];
+    console.log('chi chi chi', vm.changes);
+  };
 
   vm.addToEvents = function() {
     let its = {
