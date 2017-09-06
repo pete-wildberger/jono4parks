@@ -4,4 +4,4 @@ node_modules
 package-lock.json
 config/auth.js
 .env
-app/app.js
+public/app/app.js
