@@ -31,10 +31,10 @@ gulp.task('default', () => {
 });
 
 
-
-gulp.task('watch:default', () => {
-  gulp.watch(jsFiles, ['default']);
-});
-
-//default task
-gulp.task('default', ['watch:default']);
+// 
+// gulp.task('watch:default', () => {
+//   gulp.watch(jsFiles, ['default']);
+// });
+//
+// //default task
+// gulp.task('default', ['watch:default']);

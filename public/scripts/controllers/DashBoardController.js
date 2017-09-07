@@ -8,9 +8,9 @@ function DashController($location, httpService, AuthFactory) {
   const vm = this;
   const hs = httpService
   vm.endorse = false;
-  console.log('log', vm.endorse);
   vm.event = false;
   vm.message = false;
+  vm.signs = false;
   vm.tableData = [];
   vm.changes = {};
 
@@ -22,7 +22,6 @@ function DashController($location, httpService, AuthFactory) {
   };
 
   hs.getItem('auth').then(function(res) {
-    console.log(res.data);
     if (res.data.name) {
       vm.name = res.data.name.googleName;
     } else {
@@ -76,43 +75,41 @@ function DashController($location, httpService, AuthFactory) {
       vm.endorse = !vm.endorse;
       vm.event = false;
       vm.message = false;
+      vm.signs = false;
     } else if (id == 1) {
       vm.populateTable('/events');
       vm.endorse = false;
       vm.event = !vm.event;
       vm.message = false;
+      vm.signs = false;
     } else if (id == 2) {
       vm.populateTable('/messages');
       vm.endorse = false;
       vm.event = false;
       vm.message = !vm.message;
+      vm.signs = false;
+    } else if (id == 3) {
+      vm.populateTable('/private/signs');
+      vm.endorse = false;
+      vm.event = false;
+      vm.message = false;
+      vm.signs = !vm.signs;
     }
   };
   vm.openEndorseModal = function(id) {
-    console.log('id', id);
     document.getElementById('endorseModal').style.display = 'block';
     let idx = vm.tableData.indexOf(id);
-    console.log('idx', idx);
     vm.changes = vm.tableData[idx];
-    console.log('chi chi chi', vm.changes);
   };
   vm.openEventModal = function(id) {
-    console.log('id', id);
-    console.log('table', vm.tableData);
     document.getElementById('eventModal').style.display = 'block';
     let idx = vm.tableData.indexOf(id);
-    console.log('idx', idx);
     vm.changes = vm.tableData[idx];
-    console.log('chi chi chi', vm.changes);
   };
   vm.openMessageModal = function(id) {
-    console.log('id', id);
-    console.log('table', vm.tableData);
     document.getElementById('messageModal').style.display = 'block';
     let idx = vm.tableData.indexOf(id);
-    console.log('idx', idx);
     vm.changes = vm.tableData[idx];
-    console.log('chi chi chi', vm.changes);
   };
 
   vm.addToEvents = function() {
@@ -166,6 +163,12 @@ function DashController($location, httpService, AuthFactory) {
     console.log('remove');
     hs.deleteItem('private/events', id).then(function(res) {
       vm.populateTable('/events');
+    });
+  };
+  vm.removeSign = function(id) {
+    console.log('remove');
+    hs.deleteItem('private/signs', id).then(function(res) {
+      vm.populateTable('/private/signs');
     });
   };
 }

@@ -3,6 +3,7 @@
   <button class="en-btn" type="button" ng-click="dc.showTable(0)">Endorsements</button>
   <button class="en-btn" type="button" ng-click="dc.showTable(1)">Events</button>
   <button class="en-btn" type="button" ng-click="dc.showTable(2)">Messages</button>
+  <button class="en-btn" type="button" ng-click="dc.showTable(3)">Signs</button>
   <a ng-if="dc.displayLogout" href="#!" ng-click="dc.logout()"><span class="menuItem">Logout</span></a>
   </div>
 </div>
@@ -85,6 +86,26 @@
         <td>{{ x.email }}</td>
         <td><button ng-if="x.comment" ng-click="dc.openMessageModal(x)">Read</button></td>
         <td><button ng-click='dc.removeMessage(x._id)'>DELETE</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row" ng-if="dc.signs">
+  <div class="col-md-12">
+    <table id="signs">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Delete</th>
+      </tr>
+      <tr ng-repeat='x in dc.tableData'>
+        <td>{{ x.firstSign }}</td>
+        <td>{{ x.lastSign }}</td>
+        <td>{{ x.address }}</td>
+        <td>{{ x.signPhone }}</td>
+        <td><button ng-click='dc.removeSign(x._id)'>DELETE</button></td>
       </tr>
     </table>
   </div>
