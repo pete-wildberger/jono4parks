@@ -297,6 +297,11 @@ div.card {
 .contact{
   color: white;
 }
+.vote{
+  color: #8A00C5 !important;
+  text-decoration-color: #8A00C5 !important;
+  font-size: 2em;
+}
 //phone styles
 @media screen and (max-width: 994px){
 
@@ -345,6 +350,7 @@ a {
   .ham-allign{
     margin: 25% 30%;
   }
+
   p, h2, li, input, button, .event-data {
   font-size: 3em !important;
   }
