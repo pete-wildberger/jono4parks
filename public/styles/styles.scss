@@ -223,7 +223,7 @@ p.quote{
   text-align: center;
   text-decoration: none;
   // display: inline-block;
-  font-size: 36px;
+  font-size: 48px;
   margin: 3% auto !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
@@ -289,6 +289,14 @@ div.card {
 .sign-title{
   color: white;
 }
+.eback{
+  background: url("../assets/night_lake.jpeg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.contact{
+  color: white;
+}
 //phone styles
 @media screen and (max-width: 994px){
 
@@ -340,11 +348,26 @@ a {
   p, h2, li, input, button, .event-data {
   font-size: 3em !important;
   }
+  textarea{
+    font-size: 3em;
+    width: 90%;
+  }
 
   h1 {
-    font-size: 4em !important
+    font-size: 4em !important;
   }
   h2 {
     font-weight: bold;
+  }
+  .eback{
+    background: none;
+    background-size: none;
+    background-position: none;
+  }
+  .contact{
+    color:black;
+  }
+  .donate-donorbox{
+    font-size: 4em !important;
   }
 }
