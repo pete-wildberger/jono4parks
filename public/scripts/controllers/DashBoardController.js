@@ -34,7 +34,7 @@ function DashController($location, httpService, AuthFactory) {
   vm.populateTable = function(path) {
     hs.getItem(path).then(function(res) {
       console.log(res.data);
-        vm.tableData = res.data;
+      vm.tableData = res.data;
     });
   };
 
@@ -149,26 +149,90 @@ function DashController($location, httpService, AuthFactory) {
 
   vm.removeEndorse = function(id) {
     console.log('remove');
-    hs.deleteItem('private/endorse', id).then(function(res) {
-      vm.populateTable('/endorse');
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(function() {
+      hs.deleteItem('private/endorse', id).then(function(res) {
+        vm.populateTable('/endorse');
+      });
+      swal(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      );
     });
+
   };
   vm.removeMessage = function(id) {
     console.log('remove');
-    hs.deleteItem('private/messages', id).then(function(res) {
-      vm.populateTable('/messages');
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(function() {
+      hs.deleteItem('private/messages', id).then(function(res) {
+        vm.populateTable('/messages');
+      });
+      swal(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      );
     });
+
   };
   vm.removeEvent = function(id) {
     console.log('remove');
-    hs.deleteItem('private/events', id).then(function(res) {
-      vm.populateTable('/events');
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(function() {
+      hs.deleteItem('private/events', id).then(function(res) {
+        vm.populateTable('/events');
+      });
+      swal(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      );
     });
+
   };
   vm.removeSign = function(id) {
     console.log('remove');
-    hs.deleteItem('private/signs', id).then(function(res) {
-      vm.populateTable('/private/signs');
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(function() {
+      hs.deleteItem('private/signs', id).then(function(res) {
+        vm.populateTable('/private/signs');
+      });
+      swal(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      );
     });
+
   };
 }
