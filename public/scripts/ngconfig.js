@@ -41,8 +41,7 @@ function router($routeProvider, $locationProvider) {
       templateUrl: '/views/partials/events.html',
       controller: 'EventsController as ec',
       controllerAs: 'ec'
-    })
-    .otherwise({ redirectTo: '/' });
+    });
 
   $locationProvider.html5Mode(true);
 }
