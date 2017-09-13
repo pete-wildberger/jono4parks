@@ -7,5 +7,5 @@ function AuthController($location, httpService, AuthFactory) {
   const vm = this;
 
   window.location.href =
-    'https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=642489405428-iucab0562806f7q32g26a4t30nmcsprn.apps.googleusercontent.com&as=4a023fe17a06ba5&destination=http%3A%2F%2Fjono4parks.herokuapp.com&approval_state=!ChQwNGpZRlY2a0dtbUhoRXFyeTJDRBIfbzJ6Q01VZ0FzLXNlZ0dULWVTYTM3MXg1TXNXLTV4VQ%E2%88%99AHw7d_cAAAAAWbqkhrkgVL_TIT0wSRJc-gM5-lc-gwDa&xsrfsig=AHgIfE9VxVUVG9HavTtyQBRlQ5PbGDylgg&flowName=GeneralOAuthFlow';
+    'https://accounts.google.com/signin/oauth/oauthchooseaccount?client_id=642489405428-iucab0562806f7q32g26a4t30nmcsprn.apps.googleusercontent.com&as=4a023fe17a06ba5&destination=http%3A%2F%2Fjono4parks.org&approval_state=!ChQwNGpZRlY2a0dtbUhoRXFyeTJDRBIfbzJ6Q01VZ0FzLXNlZ0dULWVTYTM3MXg1TXNXLTV4VQ%E2%88%99AHw7d_cAAAAAWbqkhrkgVL_TIT0wSRJc-gM5-lc-gwDa&xsrfsig=AHgIfE9VxVUVG9HavTtyQBRlQ5PbGDylgg&flowName=GeneralOAuthFlow';
 }
