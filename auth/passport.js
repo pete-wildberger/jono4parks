@@ -10,7 +10,7 @@
  *
  * @module auth/passport
  */
- /** ---------- REQUIRE NODE MODULES ---------- **/
+/** ---------- REQUIRE NODE MODULES ---------- **/
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth2').Strategy;
 /** ---------- REQUIRE CUSTOM APP MODULES ---------- **/
@@ -19,18 +19,15 @@ var UserService = require('../services/user');
 /** ---------- PASSPORT SESSION SERIALIZATION ---------- **/
 
 // serialize the user onto the session
-passport.serializeUser(function (user, done) {
+passport.serializeUser(function(user, done) {
   // if (err) return handleError(err);
-  console.log('user', user);
-  console.log('done', done);
-    done(null, user.id);
+
+  done(null, user.id);
 });
 
 // deserialize the user from the session and provide user object
-passport.deserializeUser(function (id, done) {
-  console.log('id', id);
-  console.log('done', done);
-  UserService.findUserById(id, function (err, user) {
+passport.deserializeUser(function(id, done) {
+  UserService.findUserById(id, function(err, user) {
     if (err) {
       return done(err);
     }
@@ -38,39 +35,45 @@ passport.deserializeUser(function (id, done) {
   });
 });
 /** ---------- PASSPORT STRATEGY DEFINITION ---------- **/
-passport.use('google', new GoogleStrategy({
-  // identify ourselves to Google and request Google user data
-  clientID: process.env.CLIENTID,
-  clientSecret: process.env.CLIENTSECRET,
-  callbackURL: process.env.callbackUrl,
-}, function (token, refreshToken, profile, done) {
-  // Google has responded
+passport.use(
+  'google',
+  new GoogleStrategy(
+    {
+      // identify ourselves to Google and request Google user data
+      clientID: process.env.CLIENTID,
+      clientSecret: process.env.CLIENTSECRET,
+      callbackURL: process.env.callbackUrl
+    },
+    function(token, refreshToken, profile, done) {
+      // Google has responded
 
-  // does this user exist in our database already?
-  UserService.findUserByGoogleId(profile.id, function (err, user) {
-      if (err) {
-        return done(err);
-      }
-
-      if (user) { // user does exist!
-        return done(null, user);
-      }
-      UserService.findUserByEmail(profile.emails[0].value, function(err, user) {
-        if (user === null || err) {
+      // does this user exist in our database already?
+      UserService.findUserByGoogleId(profile.id, function(err, user) {
+        if (err) {
           return done(err);
         }
-      // user does not exist in our database, let's create one!
-      // UserService.createGoogleUser(profile.id, token, profile.displayName,
-      //   profile.emails[0].value, /* we take first email address */
-      //   function (err, user) {
-      //     if (err) {
-      //       return done(err);
-      //     }
-      //
-      //     return done(null, user);
-        });
-    });
 
-}));
+        if (user) {
+          // user does exist!
+          return done(null, user);
+        }
+        UserService.findUserByEmail(profile.emails[0].value, function(err, user) {
+          if (user === null || err) {
+            return done(err);
+          }
+          // user does not exist in our database, let's create one!
+          // UserService.createGoogleUser(profile.id, token, profile.displayName,
+          //   profile.emails[0].value, /* we take first email address */
+          //   function (err, user) {
+          //     if (err) {
+          //       return done(err);
+          //     }
+          //
+          //     return done(null, user);
+        });
+      });
+    }
+  )
+);
 
 module.exports = passport;

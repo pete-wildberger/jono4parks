@@ -22,6 +22,9 @@ function router($routeProvider, $locationProvider) {
       controller: 'IndexController as ic',
       controllerAs: 'ic'
     })
+    // .when('/auth/google', {
+    //   redirectTo: 'https://www.googleapis.com/auth/calendar'
+    // })
     .when('/issues', {
       templateUrl: '/views/partials/issues.html',
       controller: 'IndexController as ic',
@@ -41,7 +44,13 @@ function router($routeProvider, $locationProvider) {
       templateUrl: '/views/partials/events.html',
       controller: 'EventsController as ec',
       controllerAs: 'ec'
+    })
+    .when('/auth/google', {
+      templateUrl: '/views/partials/google.html',
+      controller: 'AuthController as ac',
+      controllerAs: 'ac'
     });
 
   $locationProvider.html5Mode(true);
+  $locationProvider.hashPrefix('');
 }
