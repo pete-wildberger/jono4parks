@@ -4,6 +4,7 @@ require('dotenv').config({
 // requires etc
 const express = require('express'),
   app = express(),
+  helmet = require('helmet'),
   path = require('path'),
   bodyParser = require('body-parser'),
   port = process.env.PORT || 4000,
@@ -17,6 +18,7 @@ const express = require('express'),
 
 database();
 // uses
+app.use(helmet());
 app.use(express.static('public'));
 app.use(
   bodyParser.urlencoded({
