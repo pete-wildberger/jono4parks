@@ -2,12 +2,13 @@ var express = require('express');
 var router = express.Router();
 var passport = require('../auth/passport');
 
-  // GET /auth/google
+// GET /auth/google
 
-router.get('/google', passport.authenticate('google',
-  {
+router.get(
+  '/google',
+  passport.authenticate('google', {
     scope: ['openid', 'email', 'https://www.googleapis.com/auth/calendar'],
-    prompt: 'select_account',
+    prompt: 'select_account'
   })
 );
 /**
@@ -19,10 +20,11 @@ router.get('/google', passport.authenticate('google',
  * IMPORTANT: URL--the first parameter below--must match
  * callbackUrl in {@link config/auth}.
  */
-router.get('/google/callback', passport.authenticate('google',
-  {
-    successRedirect: '/#!/dash', // take them to their private data
-    failureRedirect: '/#!/admin', // take them back home to try again
+router.get(
+  '/google/callback',
+  passport.authenticate('google', {
+    successRedirect: '/dash', // take them to their private data
+    failureRedirect: '/admin' // take them back home to try again
   })
 );
 /**
@@ -32,14 +34,13 @@ router.get('/google/callback', passport.authenticate('google',
  *
  * @return JSON object with status (true or false) and, if true, user's name
  */
-router.get('/', function (req, res) {
+router.get('/', function(req, res) {
   console.log('user', req.user);
   if (req.isAuthenticated()) {
     res.json({ status: true, name: req.user.googleName });
   } else {
     res.json({ status: false });
   }
-
 });
 /**
  * GET /auth/logout
@@ -48,7 +49,7 @@ router.get('/', function (req, res) {
  *
  * @return 200 - OK
  */
-router.get('/logout', function (req, res) {
+router.get('/logout', function(req, res) {
   req.logout();
   res.sendStatus(200); // they made it!
 });
