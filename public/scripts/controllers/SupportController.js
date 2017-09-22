@@ -1,5 +1,4 @@
-angular.module('myApp')
-  .controller('SupportController', SupportController);
+angular.module('myApp').controller('SupportController', SupportController);
 SupportController.$inject = ['$location', 'httpService', 'AuthFactory', '$window'];
 
 function SupportController($location, httpService, AuthFactory, $window) {
@@ -19,7 +18,7 @@ function SupportController($location, httpService, AuthFactory, $window) {
     hs.postItem('/messages', its).then(function(res) {
       swal({
         title: 'Thank you for your Support!',
-        text: "We will be in contact",
+        text: 'We will be in contact',
         imageUrl: 'assets/jono4parks.png',
         imageWidth: 199,
         imageHeight: 84
@@ -44,7 +43,7 @@ function SupportController($location, httpService, AuthFactory, $window) {
     hs.postItem('/signs', its).then(function(res) {
       swal({
         title: 'Thank you for your Support!',
-        text: "We will be in contact",
+        text: 'We will be in contact',
         imageUrl: 'assets/jono4parks.png',
         imageWidth: 199,
         imageHeight: 84
@@ -55,10 +54,9 @@ function SupportController($location, httpService, AuthFactory, $window) {
       vm.signPhone = undefined;
     });
   };
-
-vm.go = function (path) {
-  console.log('donate');
-  $window.open(path);
-};
-
+  // go to different path
+  vm.go = function(path) {
+    console.log('donate');
+    $window.open(path);
+  };
 } //end controller

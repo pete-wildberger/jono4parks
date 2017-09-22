@@ -1,30 +1,26 @@
-angular.module('myApp')
-.controller('EndorseController', EndorseController);
+angular.module('myApp').controller('EndorseController', EndorseController);
 
-EndorseController.$inject=['$location', 'httpService'];
+EndorseController.$inject = ['$location', 'httpService'];
 
-function EndorseController($location, httpService){
+function EndorseController($location, httpService) {
   console.log('EndorseController');
   const vm = this,
     hs = httpService;
 
-
-    function chunk(arr, size) {
-      var newArr = [];
-      for (var i=0; i<arr.length; i+=size) {
-        newArr.push(arr.slice(i, i+size));
-      }
-      return newArr;
+  function chunk(arr, size) {
+    var newArr = [];
+    for (let i = 0; i < arr.length; i += size) {
+      newArr.push(arr.slice(i, i + size));
     }
+    return newArr;
+  }
 
-
-
-vm.displayEndorsements = function(){
-  hs.getItem('/endorse').then(function(res) {
-    console.log('getres', res);
-  vm.endorseArr = chunk(res.data, 3);
-  });
-};
+  vm.displayEndorsements = function() {
+    hs.getItem('/endorse').then(function(res) {
+      console.log('getres', res);
+      vm.endorseArr = chunk(res.data, 3);
+    });
+  };
 
   vm.addEndorsement = function() {
     let its = {
@@ -47,7 +43,7 @@ vm.displayEndorsements = function(){
       vm.occupation = undefined;
       vm.displayEndorsements();
     });
-  };//end add
+  }; //end add
 
-vm.displayEndorsements();
-}//end controller
+  vm.displayEndorsements();
+} //end controller
