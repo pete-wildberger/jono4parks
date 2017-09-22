@@ -54,4 +54,8 @@ router.get('/logout', function(req, res) {
   res.sendStatus(200); // they made it!
 });
 
+router.get('/login', (req, res) => {
+  res.send(process.env.GURL);
+});
+
 module.exports = router;
