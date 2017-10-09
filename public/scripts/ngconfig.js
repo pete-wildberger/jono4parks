@@ -49,6 +49,9 @@ function router($routeProvider, $locationProvider) {
       templateUrl: '/views/partials/google.html',
       controller: 'AuthController as ac',
       controllerAs: 'ac'
+    })
+    .when('/donate.html', {
+      redirectTo: '/support'
     });
 
   $locationProvider.html5Mode(true);
