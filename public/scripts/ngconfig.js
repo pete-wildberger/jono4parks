@@ -52,6 +52,9 @@ function router($routeProvider, $locationProvider) {
     })
     .when('/donate.html', {
       redirectTo: '/support'
+    })
+    .when('/contact.html', {
+      redirectTo: '/support'
     });
 
   $locationProvider.html5Mode(true);
