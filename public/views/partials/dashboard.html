@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-12">
-  <button class="en-btn" type="button" ng-click="dc.showTable(0)">Endorsements</button>
+  <!-- <button class="en-btn" type="button" ng-click="dc.showTable(0)">Endorsements</button> -->
   <button class="en-btn" type="button" ng-click="dc.showTable(1)">Events</button>
   <button class="en-btn" type="button" ng-click="dc.showTable(2)">Messages</button>
   <button class="en-btn" type="button" ng-click="dc.showTable(3)">Signs</button>
   <a ng-if="dc.displayLogout" href="#!" ng-click="dc.logout()"><span class="menuItem">Logout</span></a>
   </div>
 </div>
-<div class="row" ng-if="dc.endorse">
+<!-- <div class="row" ng-if="dc.endorse">
   <div class="col-md-12">
     <table id="endorse">
       <tr>
@@ -28,7 +28,7 @@
       </tr>
     </table>
   </div>
-</div>
+</div> -->
 <div ng-if="dc.event">
   <div class="row">
     <div class="col-md-12">

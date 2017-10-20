@@ -356,12 +356,14 @@ div.card {
   }
 
   p,
-  h2,
   li,
   input,
   button,
   .event-data {
     font-size: 3em !important;
+  }
+  h2 {
+    font-size: 3.5em;
   }
   textarea {
     font-size: 3em;

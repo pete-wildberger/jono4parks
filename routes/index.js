@@ -17,7 +17,10 @@ router.get('/', function(req, res) {
 });
 
 router.get('/sierra', function(req, res) {
-  res.sendFile(path.resolve('public/views/j4pSierraClubQuestionnaire.pdf'));
+  res.sendFile(path.resolve('public/assets/pdf/j4pSierraClubQuestionnaire.pdf'));
+});
+router.get('/mydfl', function(req, res) {
+  res.sendFile(path.resolve('public/assets/pdf/jonoquestionnaire.pdf'));
 });
 
 module.exports = router;
