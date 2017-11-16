@@ -46,9 +46,3 @@ app.use('/', index);
 app.listen(port, function() {
   console.log('server up on 4000');
 });
-
-app.use(function(req, res) {
-  res.sendFile('index.html', {
-    root: 'public/views/'
-  });
-});

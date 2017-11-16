@@ -23,4 +23,10 @@ router.get('/mydfl', function(req, res) {
   res.sendFile(path.resolve('public/assets/pdf/jonoquestionnaire.pdf'));
 });
 
+router.use(function(req, res) {
+  res.sendFile('index.html', {
+    root: 'public/views/'
+  });
+});
+
 module.exports = router;
