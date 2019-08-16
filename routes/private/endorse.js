@@ -1,13 +1,15 @@
 const express = require('express'),
-router = express.Router(),
-path = require('path'),
-Endorse = require('../../models/endorsements');
+  router = express.Router(),
+  Endorse = require('../../models/endorsements');
 
 router.put('/:id', function(req, res) {
   console.log('put hit', req.params.id);
-  Endorse.findOneAndUpdate({
-    _id: req.params.id
-  }, req.body).then(function(err) {
+  Endorse.findOneAndUpdate(
+    {
+      _id: req.params.id
+    },
+    req.body
+  ).then(function(err) {
     if (!err) {
       res.send('something worked');
     } else {
@@ -15,8 +17,6 @@ router.put('/:id', function(req, res) {
     } //end else
   });
 });
-
-
 
 router.delete('/:id', function(req, res) {
   console.log('delete hit', req.params.id);
@@ -30,6 +30,5 @@ router.delete('/:id', function(req, res) {
     } //end else
   }); //end then
 }); //end delete
-
 
 module.exports = router;

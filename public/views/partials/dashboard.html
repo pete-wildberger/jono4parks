@@ -7,28 +7,7 @@
   <a ng-if="dc.displayLogout" href="#!" ng-click="dc.logout()"><span class="menuItem">Logout</span></a>
   </div>
 </div>
-<!-- <div class="row" ng-if="dc.endorse">
-  <div class="col-md-12">
-    <table id="endorse">
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Occupation</th>
-        <th></th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-      <tr ng-repeat='x in dc.tableData'>
-        <td>{{ x.firstName }}</td>
-        <td>{{ x.lastName }}</td>
-        <td>{{ x.occupation }}</td>
-        <td></td>
-        <td><button ng-click='dc.openEndorseModal(x)'>Edit</button></td>
-        <td><button ng-click='dc.removeEndorse( x._id)'>DELETE</button></td>
-      </tr>
-    </table>
-  </div>
-</div> -->
+
 <div ng-if="dc.event">
   <div class="row">
     <div class="col-md-12">

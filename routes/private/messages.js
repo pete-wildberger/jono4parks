@@ -1,7 +1,6 @@
 const express = require('express'),
-router = express.Router(),
-path = require('path'),
-Messages = require('../../models/messages');
+  router = express.Router(),
+  Messages = require('../../models/messages');
 
 router.delete('/:id', function(req, res) {
   console.log('delete hit', req.params.id);
@@ -15,6 +14,5 @@ router.delete('/:id', function(req, res) {
     } //end else
   }); //end then
 }); //end delete
-
 
 module.exports = router;

@@ -1,6 +1,5 @@
 const express = require('express'),
   router = express.Router(),
-  path = require('path'),
   Signs = require('../../models/signs');
 
 router.get('/', function(req, res) {
@@ -31,6 +30,5 @@ router.delete('/:id', function(req, res) {
     } //end else
   }); //end then
 }); //end delete
-
 
 module.exports = router;
