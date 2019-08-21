@@ -1,115 +1,123 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107780206-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-<head>
-  <!-- Global Site Tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-107780206-1"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag() {
-  dataLayer.push(arguments);
-}
-gtag('js', new Date());
+      gtag('config', 'UA-107780206-1');
+    </script>
 
-gtag('config', 'UA-107780206-1');
-</script>
+    <meta charset="utf-8" />
+    <title>Jono for Parks</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-  <meta charset="utf-8">
-  <title>Jono for Parks</title>
-  <!-- favicon -->
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!-- Vendors -->
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+    <script src="vendors/xeditable.min.js" charset="utf-8"></script>
+    <script src="vendors/sweetalert2.min.js" charset="utf-8"></script>
 
-  <!-- Vendors -->
-  <script src="vendors/angular.min.js" charset="utf-8"></script>
-  <script src="vendors/angular-route.min.js" charset="utf-8"></script>
-  <script src="vendors/xeditable.min.js" charset="utf-8"></script>
-  <script src="vendors/sweetalert2.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="vendors/xeditable.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700" rel="stylesheet" />
+    <link rel="stylesheet" href="vendors/sweetalert2.min.css" />
 
-  <link rel="stylesheet" href="vendors/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="vendors/xeditable.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="vendors/sweetalert2.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/styles.min.css" />
+    <!-- App -->
+    <!-- minified -->
+    <script src="app/all.js" charset="utf-8"></script>
+    <base href="/" />
+  </head>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles/styles.min.css">
-  <!-- App -->
-  <!-- minified -->
-  <script src="app/all.js" charset="utf-8"></script>
-<base href="/">
-</head>
-
-<body ng-app="myApp" ng-cloak>
-  <main ng-controller="IndexController as ic">
-    <header>
-      <div class="container-fluid">
-        <div class="phoneBar row align-items-center title">
-          <div class="col-md-6 col-lg-6 side">
-            <i class="fa fa-bars fa-5x ham-allign" onclick="openNav()"></i>
-            <div id="mySidenav" class="sidenav">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times fa-lg"></i></a>
-              <a href="/" class="navItem" onclick="closeNav()">
-                <p>HOME</p>
-              </a>
-              <a href="/about" class="navItem" onclick="closeNav()">
-                <p>ABOUT</p>
-              </a>
-              <a href="/issues" class="navItem" onclick="closeNav()">
-                <p>ISSUES</p>
-              </a>
-              <a href="/endorsements" class="navItem" onclick="closeNav()">
-                <p>ENDORSEMENTS</p>
-              </a>
-              <a href="/events" class="navItem" onclick="closeNav()">
-                <p>EVENTS</p>
-              </a>
-              <a href="/support" class="navItem donate" onclick="closeNav()">
-                <p>SUPPORT</p>
-              </a>
+  <body ng-app="myApp" ng-cloak>
+    <main ng-controller="IndexController as ic">
+      <header>
+        <div class="container-fluid">
+          <div class="phoneBar row align-items-center title">
+            <div class="col-md-6 col-lg-6 side">
+              <i class="fa fa-bars fa-5x ham-allign" onclick="openNav()"></i>
+              <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times fa-lg"></i></a>
+                <a href="/" class="navItem" onclick="closeNav()">
+                  <p>HOME</p>
+                </a>
+                <a href="/about" class="navItem" onclick="closeNav()">
+                  <p>ABOUT</p>
+                </a>
+                <a href="/issues" class="navItem" onclick="closeNav()">
+                  <p>ISSUES</p>
+                </a>
+                <a href="/endorsements" class="navItem" onclick="closeNav()">
+                  <p>ENDORSEMENTS</p>
+                </a>
+                <a href="/events" class="navItem" onclick="closeNav()">
+                  <p>EVENTS</p>
+                </a>
+                <a href="/support" class="navItem donate" onclick="closeNav()">
+                  <p>SUPPORT</p>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <h1 class="rightName">Jono 4 Parks</h1>
             </div>
           </div>
-          <div class="col-md-6 col-lg-6">
-            <h1 class="rightName">Jono 4 Parks</h1>
+          <div class="noPhone row align-items-center title">
+            <div class="col-md-3 col-lg-2">
+              <a href="/"><img class="logo" ng-src="/assets/logo.png" alt="Jono for parks logo"/></a>
+            </div>
+            <div class="col-md-9 col-lg-10 navTime">
+              <a href="/about" onclick="closeNav()"><h3 class="route">ABOUT</h3></a>
+              <a href="/issues" onclick="closeNav()"><h3 class="route">ISSUES</h3></a>
+              <a href="/endorsements" onclick="closeNav()"><h3 class="route">ENDORSEMENTS</h3></a>
+              <!-- <a href="/events" onclick="closeNav()"><h3 class="route">EVENTS</h3></a> -->
+              <a href="/support" onclick="closeNav()"><h3 class="route donate">SUPPORT</h3></a>
+            </div>
           </div>
         </div>
-        <div class="noPhone row align-items-center title">
-          <div class="col-md-3 col-lg-2">
-            <a href="/"><img class="logo" ng-src="/assets/logo.png" alt="Jono for parks logo"></a>
-          </div>
-          <div class="col-md-9 col-lg-10 navTime">
-            <a href="/about" onclick="closeNav()"><h3 class="route">ABOUT</h3></a>
-            <a href="/issues" onclick="closeNav()"><h3 class="route">ISSUES</h3></a>
-            <a href="/endorsements" onclick="closeNav()"><h3 class="route">ENDORSEMENTS</h3></a>
-            <a href="/events" onclick="closeNav()"><h3 class="route">EVENTS</h3></a>
-            <a href="/support" onclick="closeNav()"><h3 class="route donate">SUPPORT</h3></a>
-          </div>
+      </header>
+      <div class="container-fluid view_margin">
+        <ng-view autoscroll="true"></ng-view>
+      </div>
+      <div class="row">
+        <div class="col=md-12">
+          <footer>
+            <div class="line"></div>
+
+            <div class="text-center">
+              <span class="wrapper"
+                ><a href="mailto:jono4parks@gmail.com"><i class="fa fa-envelope-o fa-3x social"></i></a
+              ></span>
+              <span class="wrapper"
+                ><a href="https://twitter.com/jonocowgill" target="_blank"><i class="fa fa-twitter fa-3x social"></i></a
+              ></span>
+              <span class="wrapper"
+                ><a href="https://www.facebook.com/jono4parkboard/" target="_blank"
+                  ><i class="fa fa-facebook fa-3x social"></i></a
+              ></span>
+            </div>
+
+            <p class="text-center">
+              Jono Cowgill<br />
+              612-598-5157 <br />
+              jono4parks@gmail.com
+            </p>
+            <p class="builder">
+              Designed and Built by <a href="http://www.peter-wildberger.net/" target="_blank">Peter Wildberger</a>
+            </p>
+          </footer>
         </div>
       </div>
-    </header>
-    <div class="container-fluid view_margin">
-      <ng-view autoscroll="true"></ng-view>
-    </div>
-    <div class="row">
-      <div class="col=md-12">
-        <footer>
-          <div class="line"></div>
-
-          <div class="text-center">
-            <span class="wrapper"><a href="mailto:jono4parks@gmail.com"><i class="fa fa-envelope-o fa-3x social"></i></a></span>
-            <span class="wrapper"><a href="https://twitter.com/jono4parkboard" target="_blank"><i class="fa fa-twitter fa-3x social"></i></a></span>
-            <span class="wrapper"><a href="https://www.facebook.com/jono4parkboard/" target="_blank"><i class="fa fa-facebook fa-3x social"></i></a></span>
-          </div>
-
-          <p class="text-center">
-            Jono Cowgill<br> 612-598-5157
-            <br> jono4parks@gmail.com
-          </p>
-          <p class="builder">Designed and Built by <a href="http://www.peter-wildberger.net/" target="_blank">Peter Wildberger</a></p>
-        </footer>
-      </div>
-    </div>
-  </main>
-</body>
-
+    </main>
+  </body>
 </html>
