@@ -19,6 +19,7 @@
     "express-session": "^1.16.2",
     "helmet": "^3.20.0",
     "mongoose": "^4.11.3",
+    "natives": "^1.1.6",
     "nodemailer": "^4.0.1",
     "passport": "^0.3.2",
     "passport-google": "^0.3.0",
@@ -34,6 +35,8 @@
     "gulp-babel": "^7.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-uglify": "^3.0.0",
-    "pump": "^1.0.2"
+    "pump": "^1.0.2",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
   }
 }

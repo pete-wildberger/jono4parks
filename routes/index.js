@@ -12,7 +12,6 @@ router.use('/events', events);
 router.use('/signs', signs);
 
 router.get('/', function(req, res) {
-  console.log('User-Agent: ' + req.headers['user-agent']);
   res.sendFile(path.resolve('public/views/index.html'));
 });
 

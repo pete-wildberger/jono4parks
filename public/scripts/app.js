@@ -1,21 +1,23 @@
 //nav stuff
 function openNav() {
-  document.getElementById("mySidenav").style.width = "40%";
+  document.getElementById('mySidenav').style.width = '52%';
   // document.getElementById("main").style.marginLeft = "230px";
 }
 
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById('mySidenav').style.width = '0';
   // document.getElementById("main").style.marginLeft = "0";
 }
 
 // AngularJS app
-angular.module('myApp', ["ngRoute", "xeditable"]);
+angular.module('myApp', ['ngRoute', 'xeditable']);
 // xeditable
-angular.module('myApp')
-.run(['editableOptions', function(editableOptions) {
-  editableOptions.theme = 'default'; // bootstrap3 theme. Can be also 'bs2', 'default'
-}]);
+angular.module('myApp').run([
+  'editableOptions',
+  function(editableOptions) {
+    editableOptions.theme = 'default'; // bootstrap3 theme. Can be also 'bs2', 'default'
+  }
+]);
 // phone filter
 
 //phone inputs
